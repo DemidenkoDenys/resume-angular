@@ -1,0 +1,37 @@
+$color-first: #b8bd56;
+$color-second: #0cc;
+
+.section__header{
+	margin-bottom: 20px;
+	padding: 5px;
+	color: $color-first;
+	font-size: 1.6rem;
+	font-family: 'museo100';
+	text-align: center;
+
+	span{
+		position: relative;
+		font-family: inherit;
+	    background: linear-gradient(to right, $color-first 20%, $color-second);
+		background-clip: text;
+		text-fill-color: transparent;
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+
+		&:after{
+			content: '';
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			height: 1px;
+			background: linear-gradient(to right, $color-first, $color-second);
+			opacity: 0.2;
+		}
+
+		.ie &{
+			background: none;
+		}
+	}
+}
+

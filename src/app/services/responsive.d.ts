@@ -1,0 +1,1 @@
+type ScreenXX = 'sm' | 'md' | 'lg';

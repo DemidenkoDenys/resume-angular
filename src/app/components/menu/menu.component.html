@@ -1,0 +1,19 @@
+<nav (window:resize)="onResize()">
+  <ul
+    class="main-menu"
+    [class.main-menu_mobile]="screen == 'sm'"
+    [class.main-menu_fixed]="fixed"
+  >
+    <li class="main-menu__item-holder_mobile-button">
+      <a class="main-menu__item-link_mobile-button" href="">
+        <span class="glyphicon glyphicon-menu-hamburger"></span>
+      </a>
+    </li>
+
+    <li *ngFor="let item of menuItems; let i = index" class="main-menu__item-holder">
+      <a class="main-menu__item-link" href="#" [style.background-position]="(i * 5.9) + '% 0'">
+        {{item.description}}
+      </a>
+    </li>
+  </ul>
+</nav>

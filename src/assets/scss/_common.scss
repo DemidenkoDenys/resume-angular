@@ -1,0 +1,59 @@
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: Helvetica;
+	outline: none !important;
+
+	&::selection{
+		color: blue;
+	}
+}
+
+@each $language, $lg in $langs {
+	html:lang(#{$lg}) *:not(:lang(#{$lg})){
+		display: none;
+	}
+}
+
+html{
+	font-size: 16px;
+	line-height: 20px;
+	overflow-x: hidden;
+}
+
+main{
+	padding: 0 5%;
+}
+
+section{
+	padding: 50px 15px 0 0;
+	max-width: 1280px;
+	margin: 0 auto;
+
+	@media screen and (min-width: 768px){
+		padding: 50px 25px 25px;
+	}
+}
+
+a{
+	text-decoration: none;
+}
+
+cite{
+	font-style: normal;
+}
+
+ul, ol{
+	list-style-type: none;
+}
+
+.glyphicon:before{
+  vertical-align: text-bottom;
+  color: white;
+  
+  @media screen and (max-width: 480px){
+    margin-right: 5px;
+    vertical-align: bottom;
+  }
+}
