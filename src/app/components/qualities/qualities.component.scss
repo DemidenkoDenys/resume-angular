@@ -1,0 +1,25 @@
+.qualities{
+  &-section{
+    vertical-align: top;
+
+    @media screen and (min-width: 768px){
+      width: 50%;
+      padding-right: 5%;
+      display: inline-block;
+    }
+  }
+
+  &-list{
+    @media screen and (min-width: 480px){
+      padding-top: 20px;
+    }
+  }
+
+  &-item{
+    margin-bottom: 15px;
+
+    &__header{
+      margin-bottom: 5px;
+    }
+  }
+}

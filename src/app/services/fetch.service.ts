@@ -7,14 +7,9 @@ import { AngularFireDatabase } from '@angular/fire/database';
 })
 export class FetchService {
 
-  data: Observable<any>;
+  constructor(public db: AngularFireDatabase) {}
 
-  constructor(public db: AngularFireDatabase) {
-    this.data = db.object('ru').valueChanges();
-    // this.data.subscribe(response => console.log(response));
-  }
-
-  getExperience(){
-    return this.db.list('ru/experience').valueChanges();
+  getData() {
+    return this.db.object('ru').valueChanges();
   }
 }

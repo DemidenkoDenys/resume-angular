@@ -1,0 +1,77 @@
+@import '../../../assets/scss/variables';
+
+.skills {
+  &-section {
+    vertical-align: top;
+    @media screen and (min-width: 768px) {
+      width: 50%;
+      padding-left: 5%;
+      display: inline-block;
+    }
+  }
+
+  &-list {
+    padding-left: 25px;
+  }
+
+  &-item {
+    position: relative;
+    margin-bottom: 5px;
+    padding: 0 5px;
+    transition: 2s;
+    height: 18px;
+    color: white;
+    transform: scale(1, 1) !important;
+    background: linear-gradient(to right, $color-first 40%, $color-second) !important;
+
+    &.appear {
+      width: 0;
+
+      &.animated {
+        @for $i from 1 through 20 {
+          &.skills-item_level-#{$i*5} {
+            width: percentage($i*5/100);
+          }
+        }
+      }
+    }
+
+    &__title {
+      position: absolute;
+      font: bold .9rem/16px Helvetica;
+    }
+
+    &__icon{
+      &:before{
+        position: absolute;
+        left: -25px;
+        font-size: 18px;
+        color: $color-first;
+        transition: 1s;
+
+        li:hover &{
+          color: $color-second;
+        }
+      }
+    }
+
+    &__header {
+      margin: 15px 0 5px;
+      font-weight: normal;
+      color: $color-first;
+    }
+  }
+
+  // &__percentage {
+  //   position: absolute;
+  //   right: 5px;
+  //   font-size: .8rem;
+  //   font-weight: bold;
+  // }
+}
+
+@for $i from 1 through 20 {
+  .skills-item_level-#{$i*5} {
+    width: percentage($i*5/100);
+  }
+}

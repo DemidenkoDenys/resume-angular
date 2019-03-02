@@ -51,7 +51,8 @@
       }
     }
 
-    &_closed {
+    &_closed,
+    &__hide {
       display: none !important;
     }
   }

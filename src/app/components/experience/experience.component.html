@@ -1,10 +1,10 @@
 <section className="experience-section">
 
-  <app-section-title [title]="'Опыт'"></app-section-title>
+  <app-section-title [title]="(data | async)?.headers.experience"></app-section-title>
 
   <ul class="experience-list">
 
-    <ng-container *ngFor="let item of items | async; let i = index; let count = count;">
+    <ng-container *ngFor="let item of ((data | async)?.experience | keyvalue); let i = index; let count = count;">
 
       <li
         class="experience-item"
@@ -15,19 +15,19 @@
       >
 
         <figure class="experience-item__image-wrapper appear">
-          <img class="experience-item__image" src="{{ item.image }}" alt="">
+          <img class="experience-item__image" src="{{ item.value.image }}" alt="">
         </figure>
 
         <i class="experience-item__pointer"></i>
 
         <h3 class="experience-item__header">
           <time class="experience-item__year">
-            <span class="experience-item__year-text">{{ item.year }}</span>
+            <span class="experience-item__year-text">{{ item.value.year }}</span>
           </time>
-          <span>{{ item.title }}</span>
+          <span>{{ item.value.title }}</span>
         </h3>
 
-        <p class="experience-item__description appear">{{ item.description }}</p>
+        <p class="experience-item__description appear">{{ item.value.description }}</p>
 
       </li>
 

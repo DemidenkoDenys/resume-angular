@@ -1,0 +1,16 @@
+<section class="qualities-section">
+
+    <app-section-title [title]="(data | async)?.headers.qualities"></app-section-title>
+
+    <ul class="qualities-list">
+      <ng-container *ngFor="let item of (data | async)?.qualities">
+        <li class="qualities-item">
+          <strong class='qualities-item__header appear'>{{ item.title }}</strong><br/>
+          <span class='qualities-item__description appear'>{{ item.description }}</span>
+        </li>
+      </ng-container>
+    </ul>
+    
+  </section>
+  
+  

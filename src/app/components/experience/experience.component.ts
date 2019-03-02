@@ -11,10 +11,10 @@ import { FetchService } from '../../services/fetch.service';
 })
 export class ExperienceComponent{
 
-  items: Observable<any>;
+  data: Observable<any>;
   upperCounter: number = 0;
 
   constructor(private _fetch: FetchService) {
-    this.items = this._fetch.getExperience();
+    this.data = this._fetch.getData();
   }
 }

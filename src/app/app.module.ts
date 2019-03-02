@@ -13,13 +13,17 @@ import { FetchService } from './services/fetch.service';
 import { WINDOW_PROVIDERS } from "./services/window.service";
 import { ExperienceComponent } from './components/experience/experience.component';
 import { SectionTitleComponent } from './components/section-title/section-title.component';
+import { SkillsComponent } from './components/skills/skills.component';
+import { QualitiesComponent } from './components/qualities/qualities.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MenuComponent,
     ExperienceComponent,
-    SectionTitleComponent
+    SectionTitleComponent,
+    SkillsComponent,
+    QualitiesComponent
   ],
   imports: [
     BrowserModule,
