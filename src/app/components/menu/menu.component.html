@@ -11,11 +11,13 @@
     </li>
 
     <ng-container *ngFor="let item of menuItems; let i = index">
-      <li class="main-menu__item-holder" [class.main-menu__item-holder__hide]="!item.show">
-        <a class="main-menu__item-link" href="#" [style.background-position]="(i * 5.9) + '% 0'">
-          {{item.description}}
-        </a>
-      </li>
+      <ejs-tooltip [content]="item.description" cssClass="tooltip-window" [mouseTrail]='true'>
+        <li class="main-menu__item-holder" [class.main-menu__item-holder__hide]="!item.show">
+          <a class="main-menu__item-link" href="#" [style.background-position]="(i * 5.9) + '% 0'">
+            {{item.description}}
+          </a>
+        </li>
+      </ejs-tooltip>
     </ng-container>
   </ul>
 </nav>

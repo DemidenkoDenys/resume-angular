@@ -1,0 +1,17 @@
+<section class="interests-section">
+
+  <app-section-title [title]="(data | async)?.headers.interests"></app-section-title>
+
+  <p class="section-description" *ngIf="(data | async)?.descriptions.interests as interests">{{ interests }}</p>
+
+  <ngx-slick-carousel class="interests-list carousel" #slickModal="slick-carousel" [config]="sliderSettings">
+    <div ngxSlickItem class="interests-item" *ngFor="let slide of interests | async; let i = index">
+      <span *ngIf="slide.non" class="interests-item__taboo glyphicon glyphicon-ban-circle"></span>
+      <ejs-tooltip [content]="slide.tip" cssClass="tooltip-window" [mouseTrail]='true'>
+        <img src="{{ slide.image }}" alt="" class="interests-item__image" >
+      </ejs-tooltip>
+      <p class="interests-item__description">{{ slide.tip }}</p>
+    </div>
+  </ngx-slick-carousel>
+
+</section>

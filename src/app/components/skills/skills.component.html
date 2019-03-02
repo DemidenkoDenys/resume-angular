@@ -2,8 +2,10 @@
 
   <app-section-title [title]="(data | async)?.headers.skills"></app-section-title>
 
+  <p class="section-description" *ngIf="(data | async)?.descriptions.skills as skills">{{ skills }}</p>
+
   <ng-container *ngFor="let item of ((data | async)?.skills | keyvalue)">
-    <h3 class="skills-item__header">{{ item.key }}</h3>
+    <h3 class="skills-item__header">{{ 'skills.' + item.key | translate }}</h3>
     <ol class="skills-list">
       <ng-container *ngFor="let skill of item.value | keyvalue">
         <li class="skills-item animated" [ngClass]="'skills-item_level-' + skill.value.level">
@@ -15,6 +17,6 @@
       </ng-container>
     </ol>
   </ng-container>
-  
+
 </section>
 

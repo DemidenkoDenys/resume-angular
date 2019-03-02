@@ -1,0 +1,94 @@
+{
+  "skills": {
+    "commercial": "Commercial experience",
+    "familiar": "Familiar with..."
+  },
+  "portfolio": {
+    "html": {
+      "title": "HTML Handbook on React",
+      "short": "React ES6 application",
+      "description": "Interactive handbook of HTML tags on React/Redux technology. Filters, search, moveable mtitleu with tag pointer. Project was developing during 5 days on the bundler create-react-app."
+    },
+    "magnat-lzr":{
+      "title": "Headphones Magnat LZR",
+      "short": "",
+      "description": ""
+    },
+    "pizza":{
+      "title": "Application 'Pizzeria'",
+      "short": "Landing page on Angular 2 ES6",
+      "description": "Educational project on Angular2 (angular-cli). On the website implemented online store of pizzas, compiling from ingredients and adding to basket. All data saving in localStorage."
+    },
+    "resume":{
+      "title": "Interactive Resume",
+      "short": "Application on React",
+      "description": "Application on Angular with language changing feature, viewing work from portfolio on different resolutions. Work created on Webpack bundler, responsive design."
+    },
+    "value":{
+      "title": "Value Garden Supply'",
+      "short": "Pixel Perfect Page",
+      "description": "Crossbrowser markup of webpage by JPG layout. Responsive on my own opinion."
+    },
+    "naturetour":{
+      "title": "Nature Tour'",
+      "short": "Pixel Perfect Page",
+      "description": "Crossbrowser markup of webpage by PSD layout with implementation of slider on JavaScript. Responsive on my own opinion. Preprocessor LESS used."
+    },
+    "jokerbros":{
+      "title": "Game Room'",
+      "short": "Educational project from scratch",
+      "description": "Project on DB MySQL randomly choose winner from visitors, who get all bits of participants of the game. DB filters of game rooms, debit of losers and adding of new game rooms."
+    },
+    "weather":{
+      "title": "Weather forecast from Yahoo",
+      "short": "Application on React",
+      "description": "Application 'Yahoo weather forecast' of all cities of the world. Used Yahoo Weather Api and different React plugins. Forecast on a week with graph of temperatures."
+    },
+    "shoop":{
+      "title": "Online store",
+      "short": "",
+      "description": ""
+    },
+    "neews":{
+      "title": "News portal",
+      "short": "",
+      "description": ""
+    },
+    "mmedia":{
+      "title": "Website of video studio",
+      "short": "",
+      "description": ""
+    },
+    "icharger":{
+      "title": "Landing page iCharger",
+      "short": "",
+      "description": ""
+    },
+    "seo20min":{
+      "title": "SEO for 20 minutes",
+      "short": "",
+      "description": ""
+    },
+    "cloudsnews":{
+      "title": "SEO for 20 minutes",
+      "short": "",
+      "description": ""
+    },
+    "po-sekretu":{
+      "title": "Blog 'Po sekretu'",
+      "short": "",
+      "description": ""
+    },
+    "paladium":{
+      "title": "LP of repairing company",
+      "short": "",
+      "description": ""
+    },
+    "jobshouse":{
+      "title": "Web business card",
+      "short": "",
+      "description": ""
+    }
+  },
+  "filter-tip": "Set filter "
+}

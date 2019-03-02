@@ -1,0 +1,11 @@
+<section class="portfolio-section">
+ 
+  <app-section-title [title]="(data | async)?.headers.portfolio"></app-section-title>
+
+  <p class="section-description" *ngIf="(data | async)?.descriptions.portfolio as portfolio">{{ portfolio }}</p>
+
+  <app-filters (onFilterChanged)="onFilterChanged($event)"></app-filters>
+
+  <app-portfolio-list [filters]="filters"></app-portfolio-list>
+
+</section>

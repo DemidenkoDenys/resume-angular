@@ -2,6 +2,8 @@
 
     <app-section-title [title]="(data | async)?.headers.qualities"></app-section-title>
 
+    <p class="section-description" *ngIf="(data | async)?.descriptions.qualities as qualities">{{ qualities }}</p>
+
     <ul class="qualities-list">
       <ng-container *ngFor="let item of (data | async)?.qualities">
         <li class="qualities-item">

@@ -2,19 +2,31 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { environment } from '../environments/environment';
-
-import { AppComponent } from './main/app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { MenuComponent } from './components/menu/menu.component';
+
+import { SlickCarouselModule } from 'ngx-slick-carousel';
+import { TooltipModule } from '@syncfusion/ej2-angular-popups';
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 import { MenuService } from './components/menu/menu.service';
 import { FetchService } from './services/fetch.service';
 import { WINDOW_PROVIDERS } from "./services/window.service";
+
+import { AppComponent } from './main/app.component';
+import { MenuComponent } from './components/menu/menu.component';
 import { ExperienceComponent } from './components/experience/experience.component';
 import { SectionTitleComponent } from './components/section-title/section-title.component';
 import { SkillsComponent } from './components/skills/skills.component';
 import { QualitiesComponent } from './components/qualities/qualities.component';
+import { GoalComponent } from './components/goal/goal.component';
+import { DescriptionComponent } from './components/description/description.component';
+import { InterestsComponent } from './components/interests/interests.component';
+import { PortfolioComponent } from './components/portfolio/portfolio.component';
+import { FiltersComponent } from './components/portfolio/filters/filters.component';
+import { PortfolioListComponent } from './components/portfolio/portfolio-list/portfolio-list.component';
 
 @NgModule({
   declarations: [
@@ -23,13 +35,29 @@ import { QualitiesComponent } from './components/qualities/qualities.component';
     ExperienceComponent,
     SectionTitleComponent,
     SkillsComponent,
-    QualitiesComponent
+    QualitiesComponent,
+    GoalComponent,
+    DescriptionComponent,
+    InterestsComponent,
+    PortfolioComponent,
+    FiltersComponent,
+    PortfolioListComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
+    SlickCarouselModule,
+    TranslateModule.forRoot({
+      loader: {
+          provide: TranslateLoader,
+          useFactory: HttpLoaderFactory,
+          deps: [ HttpClient ]
+      }
+    }),
+    TooltipModule,
   ],
   providers: [
     MenuService,
@@ -38,4 +66,9 @@ import { QualitiesComponent } from './components/qualities/qualities.component';
   ],
   bootstrap: [ AppComponent ]
 })
-export class AppModule { }
+
+export class AppModule {}
+
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http);
+}

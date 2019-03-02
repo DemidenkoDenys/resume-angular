@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
 import { AngularFireDatabase } from '@angular/fire/database';
 
 @Injectable({
@@ -7,9 +6,23 @@ import { AngularFireDatabase } from '@angular/fire/database';
 })
 export class FetchService {
 
-  constructor(public db: AngularFireDatabase) {}
+
+  constructor(public db: AngularFireDatabase){}
 
   getData() {
     return this.db.object('ru').valueChanges();
   }
+
+  getFilters() {
+    return this.db.object('filters').valueChanges();
+  }
+
+  getPortfolio() {
+    return this.db.list('portfolio', ref => ref.orderByChild('show'));
+  }
+
+  getInterests() {
+    return this.db.list('ru/interests', ref => ref.orderByChild('show'));
+  }
+
 }

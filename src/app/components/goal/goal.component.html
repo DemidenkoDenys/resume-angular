@@ -1,0 +1,7 @@
+<section>
+
+  <app-section-title [title]="(data | async)?.headers.goal"></app-section-title>
+
+  <p class="section-description" *ngIf="(data | async)?.descriptions.goal as goal">{{ goal }}</p>
+
+</section>

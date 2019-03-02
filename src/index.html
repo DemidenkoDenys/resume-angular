@@ -8,6 +8,10 @@
     <base href="/" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" type="image/x-icon" href="favicons/favicon.ico" />
+
+    <script type="text/javascript">
+      function currentYear() { return document.write(new Date().getFullYear()); }
+    </script>
   </head>
 
   <body>
@@ -26,26 +30,26 @@
 
       <ul class="header__contacts">
 
-        <li class="contacts__item icon-heart">
+        <li class="contacts__item glyphicon glyphicon-heart">
           <time lang="ru" datetime="27.12.1984">27 декабря 1984 г</time>
           <time lang="uk" datetime="27.12.1984">27 грудня 1984 р.</time>
           <time lang="en" datetime="27.12.1984">27th of December, 1984</time>
         </li>
 
-        <li class="contacts__item icon-earth">
+        <li class="contacts__item glyphicon glyphicon-globe">
           <cite lang="ru">Украина, г. Харьков</cite>
           <cite lang="uk">Україна, м. Харків</cite>
           <cite lang="en">Kharkiv city, Ukraine</cite>
         </li>
 
         <li class="contacts__item">
-          <a class="contacts__item_link icon-phone" href="tel:+380935084005">
+          <a class="contacts__item_link glyphicon glyphicon-phone" href="tel:+380935084005">
             <span>+38 (093) 508 4005</span>
           </a>
         </li>
 
         <li class="contacts__item">
-          <a class="contacts__item_link icon-phone" href="tel:+380966246772" >
+          <a class="contacts__item_link glyphicon glyphicon-phone" href="tel:+380966246772" >
             <span>+38 (096) 624 6772</span>
           </a>
         </li>
@@ -60,7 +64,7 @@
         </li>
 
         <li class="contacts__item">
-          <a class="contacts__item_link icon-mail2" href="mailto:DemydenkoDenys@gmail.com">
+          <a class="contacts__item_link glyphicon glyphicon-envelope" href="mailto:DemydenkoDenys@gmail.com">
             <span>DemydenkoDenys@gmail.com</span>
           </a>
         </li>
@@ -69,6 +73,54 @@
     </header>
 
     <app-root></app-root>
+
+    <footer>
+      <small>
+        <span lang="ru">Копирайт Демиденко Денис<sup>&copy;</sup></span>
+        <span lang="uk">Копірайт Демиденко Денис<sup>&copy;</sup></span>
+        <span lang="en">Copywrited by <wbr>Demidenko Denys<sup>&copy;</sup></span><br>
+
+        <span lang="ru">Все права защищены, <time><script>currentYear()</script></time></span>
+        <span lang="uk">Усі права захищені, <time><script>currentYear()</script></time></span>
+        <span lang="en">All right reserved, <time><script>currentYear()</script></time></span>
+      </small>
+
+      <p class="date">
+        <date>2016 - <script>currentYear()</script></date>
+      </p>
+
+      <nav>
+        <ul>
+          <li><a href="https://github.com/demidenkodenys" target="_blank">GitHub</a></li>
+          <li><a href="https://www.linkedin.com/in/demidenko-denys/" target="_blank">LinkedIn</a></li>
+          <li><a href="https://djinni.co/q/0aa7121b" target="_blank">Djinni</a></li>
+
+          <li>
+            <a href="./downloads/Demidenko_Denys_CV.doc" download>
+              <span lang="ru">Скачать DOC резюме</span>
+              <span lang="uk">Завантажити DOC резюме</span>
+              <span lang="en">Download resume in DOC</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="./downloads/Demidenko_Denys_CV.pdf" download>
+              <span lang="ru">Скачать PDF резюме</span>
+              <span lang="uk">Завантажити PDF резюме</span>
+              <span lang="en">Download resume in PDF</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="#" onclick="window.print();">
+              <span lang="ru">Распечатать</span>
+              <span lang="uk">Роздрукувати</span>
+              <span lang="en">Print resume</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </footer>
     
   </body>
 </html>

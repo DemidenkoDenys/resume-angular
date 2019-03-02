@@ -1,0 +1,48 @@
+footer{
+	display: flex;
+	display: -ms-flexbox;
+	justify-content: space-between;
+	-ms-justify-content: space-between;
+	padding: 25px 5%;
+
+	@media screen and (max-width: 1280px){
+		padding-right: 50px;
+	}
+
+	@media screen and (max-width: 480px){
+		flex-direction: column;
+		-ms-flex-direction: column;
+
+		& > *{
+			margin-bottom: 25px;
+			text-align: center;
+			font-size: 0.8rem;
+		}
+	}
+
+	*:first-child,
+	*:last-child{
+		flex-grow: 1;
+		-ms-flex-positive: 1;
+	}
+
+	*:first-child{
+		color: gray;
+	}
+
+	.date{
+		flex-grow: 2;
+		-ms-flex-positive: 5;
+		text-align: center;
+	}
+
+	nav{
+		text-align: right;
+
+		@media screen and (max-width: 480px){
+			li{
+				text-align: center;
+			}
+		}
+	}
+}

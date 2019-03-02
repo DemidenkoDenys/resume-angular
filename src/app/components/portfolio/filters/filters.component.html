@@ -1,0 +1,22 @@
+<ul class="portfolio-filters">
+
+  <ng-container *ngFor="let filter of ((filters$ | async ) | keyvalue); ">
+
+    <li class="portfolio-filter__item" *ngIf="filter.value">
+      <label>
+
+        <input
+          type="checkbox"
+          value="filter.key"
+          class="portfolio-filter__checker"
+          [checked]="filtersChecks[filter.key]"
+          (change)="onFilterChecked(filter.key, $event)"
+        />
+
+        <span class="portfolio-filter__marker">{{ filter.key }}</span>
+      </label>
+    </li>
+
+  </ng-container>
+
+</ul>
