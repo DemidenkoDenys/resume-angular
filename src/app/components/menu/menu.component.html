@@ -4,20 +4,28 @@
     [class.main-menu_mobile]="screen == 'sm'"
     [class.main-menu_fixed]="fixed"
   >
-    <li class="main-menu__item-holder_mobile-button">
+
+    <li class="main-menu__item-holder main-menu__item-holder_mobile-button">
       <a class="main-menu__item-link_mobile-button" href="">
         <span class="glyphicon glyphicon-menu-hamburger"></span>
       </a>
     </li>
 
     <ng-container *ngFor="let item of menuItems; let i = index">
-      <ejs-tooltip [content]="item.description" cssClass="tooltip-window" [mouseTrail]='true'>
-        <li class="main-menu__item-holder" [class.main-menu__item-holder__hide]="!item.show">
-          <a class="main-menu__item-link" href="#" [style.background-position]="(i * 5.9) + '% 0'">
+      <li class="main-menu__item-holder" [class.main-menu__item-holder__hide]="!item.show">
+        <ejs-tooltip [content]="item.description" cssClass="tooltip-window" [mouseTrail]='true'>
+          <a
+            class="main-menu__item-link"
+            target="_blank"
+            [href]="item.href"
+            [attr.download]="item.download ? '' : null"
+            [style.background-position]="(i * 5.9) + '% 0'"
+            (click)="item.action && item.action(); item.prevent && $event.preventDefault();"
+          >
             {{item.description}}
           </a>
-        </li>
-      </ejs-tooltip>
+        </ejs-tooltip>
+      </li>
     </ng-container>
   </ul>
 </nav>

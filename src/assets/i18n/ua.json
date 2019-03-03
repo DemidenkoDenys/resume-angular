@@ -1,59 +1,13 @@
 {
-  "experience": {
-    "1984": {
-      "title": "Birth year",
-      "description": "I was born in Kharkiv, where live and work now"
-    },
-    "2001": {
-      "title": "Graduated from lyceum",
-      "description": "Graduated from Kharkiv's University of Economy n.161"
-    },
-    "2005": {
-      "title": "Technician of private local network",
-      "description": "Connection of new users, expansion of network lines, re-equipment, adjustment of equipment"
-    },
-    "2007": {
-      "title": "Graduated from University",
-      "description": "graduated from Kharkiv National University of Economy (KNUE) with honours. Diploma's theme - Development of automated module 'Monitoring of payments for provided services in private local network' - excellent (10)"
-    },
-    "2008": {
-      "title": "Technician-administrator of Airbites",
-      "description": "Adjustment of network's equipments and user's computers, cabling of new and maintenance of existed lines"
-    },
-    "2010": {
-      "title": "Copyrighter/SEO optimizer/Content-manager",
-      "description": "Freelancer - writing articles, optimizing of websites for promoting in searching systems, adding of content on websites through admin-panels or straight in html-code"
-    },
-    "2015": {
-      "title": "HTML/CSS coder",
-      "description": "Freelancer - mark-up of webpages, adapting of CMS templates for customer's requirements, fixing of bugs, designs creating"
-    },
-    "2016": {
-      "title": "Frontend developer BigDrop",
-      "description": "Freelancer, and after staff member of 2 companies. The responsibilities included – creating interfaces, full part of websites production ranging from creation of concept to hosting the sites on internet, finding domains, adding dynamic through JavaScript and functional through PHP"
-    },
-    "2017": {
-      "title": "Frontend developer DigitalSuits",
-      "description": "Now I am working in DigitalSuits company as React and Angular developer"
-    },
-    "2018": {
-      "title": "2018 experience",
-      "description": "2018 experience"
-    },
-    "2019": {
-      "title": "Currently",
-      "description": "Now I am applicant on React Frontend Developer post in big company in Kharkiv. I am interested in team projects, which I will be proud of, unlike of just having payment for this. Also I want to improve my technical skills working in team's projects."
-    }
-  },
   "skills": {
     "commercial": "Commercial experience",
     "familiar": "Familiar with..."
   },
   "portfolio": {
     "html": {
-      "title": "HTML Handbook on React",
-      "short": "React ES6 application",
-      "description": "Interactive handbook of HTML tags on React/Redux technology. Filters, search, moveable mtitleu with tag pointer. Project was developing during 5 days on the bundler create-react-app."
+      "title": "HTML довідник на React",
+      "short": "React ES6 додаток",
+      "description": "Інтерактивний довідник HTML тегов на React/Redux. Фільтрація, пошук, рухоме меню с вказівником. Проект готувався 5 дніві з використанням збірки create-react-app."
     },
     "magnat-lzr":{
       "title": "Headphones Magnat LZR",

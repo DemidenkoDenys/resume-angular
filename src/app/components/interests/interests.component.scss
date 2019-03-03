@@ -3,14 +3,24 @@
   padding-top: 50px;
   height: 150px;
   margin-right: 20px;
+}
 
-  .slick-track {
+
+:host::ng-deep.slick{
+
+  &-track {
     transition: 1s !important;
   }
 
-  .slick-arrow {
-    margin-top: 15px;
+  &-slide {
+    position: relative;
+    padding-left: 10px;
+    text-align: center;
+  }
 
+  &-arrow {
+    margin-top: 15px;
+  
     &:before {
       content: '';
       position: absolute;
@@ -22,10 +32,10 @@
       transform: rotate(-45deg);
       transform-origin: center center;
     }
-
+  
     &.slick-next {
       right: 0;
-
+  
       &:before {
         transform: rotate(135deg);
       }
@@ -35,12 +45,6 @@
         left: 0;
       }
     }
-  }
-
-  .slick-slide {
-    position: relative;
-    padding-left: 10px;
-    text-align: center;
   }
 }
 

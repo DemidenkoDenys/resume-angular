@@ -51,7 +51,14 @@
   
     @media screen and (min-width: 993px){
       display: inline-block;
-      width: 20%;
+      width: 17%;
+
+      &:first-child{
+        width: 14%;
+      }
+      &:nth-child(2){
+        width: 15%;
+      }
     }
 
     &_top-left{
@@ -78,7 +85,7 @@
     
       @media screen and (min-width: 993px){
         align-self: flex-start;
-        margin-left: 10%;
+        margin-left: 7%;
         padding-top: 20px;
     
         & ~ &{
@@ -121,7 +128,6 @@
       margin: auto;
       width: 50px;
       height: 50px;
-      // background-image: url(../../images/experience/experience-sprites.png);
       background-size: auto 100%;
     
       @for $i from 0 through 10{

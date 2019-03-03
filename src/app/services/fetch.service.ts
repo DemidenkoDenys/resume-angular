@@ -25,4 +25,8 @@ export class FetchService {
     return this.db.list('ru/interests', ref => ref.orderByChild('show'));
   }
 
+  getExperience() {
+    return this.db.list('experience');
+  }
+
 }

@@ -6,7 +6,8 @@
 
   <ul class="experience-list">
 
-    <ng-container *ngFor="let item of ((data | async)?.experience | keyvalue); let i = index; let count = count;">
+      <!-- <ng-container *ngFor="let item of ((data | async)?.experience | keyvalue); let i = index; let count = count;"> -->
+      <ng-container *ngFor="let item of experiences | async; let i = index; let count = count;">
 
       <li
         class="experience-item"
@@ -17,19 +18,19 @@
       >
 
         <figure class="experience-item__image-wrapper appear">
-          <img class="experience-item__image" src="{{ item.value.image }}" alt="">
+          <img class="experience-item__image" src="{{ item.image }}" alt="">
         </figure>
 
         <i class="experience-item__pointer"></i>
 
         <h3 class="experience-item__header">
           <time class="experience-item__year">
-            <span class="experience-item__year-text">{{ item.value.year }}</span>
+            <span class="experience-item__year-text">{{ item.year }}</span>
           </time>
-          <span>{{ item.value.title }}</span>
+          <span>{{ 'experience.' + item.year + '.title' | translate }}</span>
         </h3>
 
-        <p class="experience-item__description appear">{{ item.value.description }}</p>
+        <p class="experience-item__description appear">{{ 'experience.' + item.year + '.description' | translate }}</p>
 
       </li>
 
