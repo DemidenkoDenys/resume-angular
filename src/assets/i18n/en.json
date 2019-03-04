@@ -46,8 +46,15 @@
     }
   },
   "skills": {
-    "commercial": "Commercial experience",
-    "familiar": "Familiar with..."
+    "main-stack": "Main stack of technology:",
+    "commercial": "Commercial experience in:",
+    "familiar": "Familiar with:",
+    "desire": "Desired to learn:",
+    "filters": {
+      "show": "By default",
+      "level": "Proficiency",
+      "title": "Alphabet"
+    }
   },
   "portfolio": {
     "html": {

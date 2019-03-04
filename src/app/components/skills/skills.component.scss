@@ -10,6 +10,32 @@
     }
   }
 
+  &-filters{
+    text-align: right;
+    margin-top: -25px;
+    a{
+      color: $color-first;
+      transition: .5s;
+      margin-left: 10px;
+      &:after{
+        content: "";
+        font-size: 10px;
+        vertical-align: middle;
+      }
+      &.active{
+        color: $color-second;
+        &:after{
+          content: "▲";
+        }
+      }
+      &.desc{
+        &:after{
+          content: "▼";
+        }
+      } 
+    }
+  }
+
   &-list {
     padding-left: 25px;
   }
@@ -44,7 +70,7 @@
     &__icon{
       &:before{
         position: absolute;
-        left: -25px;
+        left: -30px;
         font-size: 18px;
         color: $color-first;
         transition: 1s;
@@ -62,12 +88,6 @@
     }
   }
 
-  // &__percentage {
-  //   position: absolute;
-  //   right: 5px;
-  //   font-size: .8rem;
-  //   font-weight: bold;
-  // }
 }
 
 @for $i from 1 through 20 {

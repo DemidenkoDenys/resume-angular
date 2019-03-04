@@ -4,18 +4,31 @@
 
   <p class="section-description" *ngIf="(data | async)?.descriptions.skills as skills">{{ skills }}</p>
 
-  <ng-container *ngFor="let item of ((data | async)?.skills | keyvalue)">
-    <h3 class="skills-item__header">{{ 'skills.' + item.key | translate }}</h3>
-    <ol class="skills-list">
-      <ng-container *ngFor="let skill of item.value | keyvalue">
-        <li class="skills-item animated" [ngClass]="'skills-item_level-' + skill.value.level">
-          <strong class="skills-item__title">
-            <span class="skills-item__icon" [ngClass]="'icon-' + (skill.value.icon || skill.key)"></span>
-            {{ skill.value.title }}
-          </strong>
-        </li>
-      </ng-container>
-    </ol>
+  <p class="skills-filters">
+    <ng-container *ngFor="let filter of filters | keyvalue">
+      <a href="#"
+        class="skills-filters__item"
+        [class.active]="!!filter.value"
+        [class.desc]="filter.value == 1"
+        (click)="executeFilter(filter); $event.preventDefault();"
+      ><small>{{ 'skills.filters.' + filter.key | translate }}</small></a>
+    </ng-container>
+  </p>
+
+  <ng-container *ngFor="let group of skillsGroups">
+    <ng-container *ngIf="skills[group] && skills[group].length">
+      <h3 class="skills-item__header">{{ 'skills.' + group | translate }}</h3>
+      <ol class="skills-list">
+        <ng-container *ngFor="let skill of skills[group]">
+          <li class="skills-item animated" [ngClass]="'skills-item_level-' + skill.level">
+            <strong class="skills-item__title">
+              <span class="skills-item__icon" [ngClass]="'icon-' + (skill.icon || skill.title | lowercase)"></span>
+              {{ skill.title }}
+            </strong>
+          </li>
+        </ng-container>
+      </ol>
+    </ng-container>
   </ng-container>
 
 </section>

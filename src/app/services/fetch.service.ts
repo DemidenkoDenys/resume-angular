@@ -29,4 +29,11 @@ export class FetchService {
     return this.db.list('experience');
   }
 
+  getSkills() {
+    return this.db.object('skills').valueChanges();
+  }
+
+  getSkillsPriority() {
+    return this.db.list('skills-priority').valueChanges();
+  }
 }
