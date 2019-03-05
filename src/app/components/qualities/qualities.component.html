@@ -3,10 +3,10 @@
     <app-section-title [title]="'headers.qualities' | translate"></app-section-title>
 
     <ul class="qualities-list">
-      <ng-container *ngFor="let item of (data | async)?.qualities">
+      <ng-container *ngFor="let item of qualities">
         <li class="qualities-item">
-          <strong class='qualities-item__header appear'>{{ item.title }}</strong><br/>
-          <span class='qualities-item__description appear'>{{ item.description }}</span>
+          <strong class='qualities-item__header appear'>{{ 'qualities.' + item.title + '.title' | translate }}</strong><br/>
+          <span class='qualities-item__description appear'>{{ 'qualities.' + item.title + '.description' | translate }}</span>
         </li>
       </ng-container>
     </ul>

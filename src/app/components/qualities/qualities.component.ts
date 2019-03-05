@@ -9,6 +9,10 @@ import { FetchService } from '../../services/fetch.service';
 })
 export class QualitiesComponent {
 
-  constructor(private _fetch: FetchService) {}
+  qualities: any;
+
+  constructor(private _fetch: FetchService) {
+    this._fetch.getQualities().subscribe(snapshot => this.qualities = snapshot);
+  }
 
 }

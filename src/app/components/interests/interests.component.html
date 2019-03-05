@@ -6,11 +6,11 @@
 
   <ngx-slick-carousel class="interests-list carousel" #slickModal="slick-carousel" [config]="sliderSettings">
     <div ngxSlickItem class="interests-item" *ngFor="let slide of interests | async; let i = index">
-      <span *ngIf="slide.non" class="interests-item__taboo glyphicon glyphicon-ban-circle"></span>
-      <ejs-tooltip [content]="slide.tip" cssClass="tooltip-window" [mouseTrail]='true'>
+      <span *ngIf="slide.taboo" class="interests-item__taboo glyphicon glyphicon-ban-circle"></span>
+      <ejs-tooltip [content]="'interests.' + slide.title | translate" cssClass="tooltip-window" [mouseTrail]='true'>
         <img src="{{ slide.image }}" alt="" class="interests-item__image" >
       </ejs-tooltip>
-      <p class="interests-item__description">{{ slide.tip }}</p>
+      <p class="interests-item__description">{{ 'interests.' + slide.title | translate }}</p>
     </div>
   </ngx-slick-carousel>
 

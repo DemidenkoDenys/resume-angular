@@ -27,6 +27,7 @@ import { PortfolioComponent } from './components/portfolio/portfolio.component';
 import { FiltersComponent } from './components/portfolio/filters/filters.component';
 import { PortfolioListComponent } from './components/portfolio/portfolio-list/portfolio-list.component';
 import { ModalComponent } from './components/modal/modal.component';
+import { DetailsComponent } from './components/portfolio/details/details.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { ModalComponent } from './components/modal/modal.component';
     PortfolioComponent,
     FiltersComponent,
     PortfolioListComponent,
-    ModalComponent
+    ModalComponent,
+    DetailsComponent
   ],
   imports: [
     BrowserModule,

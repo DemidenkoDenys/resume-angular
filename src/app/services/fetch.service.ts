@@ -18,7 +18,7 @@ export class FetchService {
   }
 
   getInterests() {
-    return this.db.list('ru/interests', ref => ref.orderByChild('show')).valueChanges();
+    return this.db.list('interests', ref => ref.orderByChild('show')).valueChanges();
   }
 
   getExperience() {
@@ -35,5 +35,9 @@ export class FetchService {
 
   getImages() {
     return this.db.object('images').valueChanges();
+  }
+
+  getQualities() {
+    return this.db.list('qualities').valueChanges();
   }
 }

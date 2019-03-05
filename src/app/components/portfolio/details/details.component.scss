@@ -1,0 +1,246 @@
+.portfolio-work {
+  &__opened {
+    text-align: center;
+    margin-bottom: 100px;
+    @media screen and (max-width: 768px) {
+      padding-right: 35px;
+    }
+
+    .glyphicon {
+      font-size: 18px;
+
+      &.glyphicon-menu-left {
+        color: #b8bd56;
+        margin-right: 10px;
+      }
+
+      &.glyphicon-new-window {
+        color: #00CCCC;
+        margin-left: 10px;
+      }
+    }
+
+    &__description {
+      width: 100%;
+      margin: 0 0 35px 10px;
+      padding-top: 25px;
+      @media screen and (min-width: 480px) {
+        width: 60%;
+        margin: 0 auto 35px;
+      }
+    }
+
+    &__short-description {
+      margin-bottom: 10px;
+      font-weight: bold;
+    }
+
+    &__print-version {
+      display: none;
+    }
+  }
+
+  & + .work-in-frame__loading-icon {
+    display: none;
+  }
+}
+
+.work-in-frame {
+  position: absolute;
+  left: 0;
+  top: 0;
+  border: none;
+  z-index: 1;
+  transform-origin: 0 0;
+
+  overflow-scrolling: touch;
+  overflow: hidden;
+
+  &__close-cross {
+    position: absolute;
+    top: 20px;
+    right: 15px;
+    z-index: 3;
+    width: 15px;
+    height: 15px;
+    color: white;
+    opacity: .5;
+
+    .work-in-frame__device-wrapper_laptop & {
+      top: 9px;
+      right: 84px;
+    }
+
+    &:after,
+    &:before {
+      content: '';
+      position: absolute;
+      top: -4px;
+      left: 7px;
+      width: 1px;
+      height: 20px;
+      transform: rotate(45deg);
+      background: white;
+    }
+
+    &:before {
+      transform: rotate(-45deg);
+    }
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+
+  &__close-mobile-button {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 4;
+    margin: auto;
+    border-radius: 50%;
+    transition: 1s;
+
+    .work-in-frame__device-wrapper_ipad & {
+      width: 7.63%;
+      height: 5.1334%;
+      bottom: 3.5%;
+      @media screen and (max-width: 768px) {
+        bottom: 2.5%;
+      }
+    }
+
+    .work-in-frame__device-wrapper_ipad-pro & {
+      width: 4.766%;
+      height: 3.4375%;
+      bottom: 5.2%;
+      @media screen and (max-width: 768px) {
+        bottom: 1.5%;
+      }
+    }
+
+    .work-in-frame__device-wrapper_iphone & {
+      width: 18.3486%;
+      height: 8.74%;
+      bottom: 3.7%;
+    }
+
+    .work-in-frame__device-wrapper_samsung & {
+      width: 20.83333%;
+      height: 4.334%;
+      bottom: 4.3%;
+    }
+
+    .work-in-frame__device-wrapper_desktop &,
+    .work-in-frame__device-wrapper_laptop & {
+      display: none;
+    }
+
+    &:hover {
+      background: rgba(255, 255, 255, .2);
+    }
+  }
+
+  &__device-wrapper {
+    display: inline-block;
+    position: relative;
+
+    &_desktop {
+      width: 100%;
+      height: auto;
+    }
+
+    &_iphone {
+      width: 58.5mm;
+      height: 123.8mm;
+    }
+
+    &_laptop {
+      width: 100%;
+      height: auto;
+    }
+
+    &_samsung {
+      width: 69.5mm;
+      height: 142.5mm;
+    }
+
+    &_ipad {
+      width: 134.8mm;
+      height: 203.2mm;
+      @media screen and (max-width: 768px) {
+        width: 80%;
+        height: auto;
+      }
+    }
+
+    &_ipad-pro {
+      width: 174.1mm;
+      height: 250.6mm;
+      @media screen and (max-width: 768px) {
+        width: 80%;
+        height: auto;
+      }
+    }
+  }
+
+  &__device-cover {
+    position: relative;
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    max-height: 100%;
+    pointer-events: none;
+    z-index: 2;
+  }
+
+  &_desktop {
+    left: 4%;
+    top: 4.8%;
+  }
+
+  &_iphone {
+    top: 14.4%;
+    left: 8.4%;
+  }
+
+  &_laptop {
+    top: 4.3%;
+    left: 10.2%;
+  }
+
+  &_ipad {
+    top: 11.5%;
+    left: 5.5%;
+  }
+
+  &_ipad-pro {
+    top: 6.5%;
+    left: 4.8%;
+  }
+
+  &_samsung {
+    top: 9.2%;
+    left: 3.5%;
+  }
+
+  &_waiting {
+    display: none;
+
+    & + .work-in-frame__loading-icon {
+      display: block;
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      margin: auto;
+      text-align: center;
+      // background: url("../../../images/loading.gif") no-repeat center center;
+      background-size: 50% auto;
+    }
+  }
+}

@@ -27,7 +27,7 @@
     $l-min: 30;
     $l-max: 90;
   
-    @for $i from 1 through 10 {
+    @for $i from 1 through 11 {
       &:nth-child(#{$i}){
         color: hsl(random(360),$s-min+random($s-max+-$s-min),$l-min+random($l-max+-$l-min));
       }
