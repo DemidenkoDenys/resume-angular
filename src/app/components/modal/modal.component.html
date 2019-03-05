@@ -1,0 +1,11 @@
+<div
+  class="modal"
+  [class.opened]="open"
+  [ngClass]="type"
+  (click)="closeModal()"
+>
+  <div class="modal-content">
+    <img class="modal-image" [src]="url"/>
+  </div>
+
+</div>

@@ -18,7 +18,7 @@ export class PortfolioListComponent {
   public portfolio: Array<Work> = [];
 
   constructor(private _fetch: FetchService) {
-    this._fetch.getPortfolio().valueChanges().subscribe((snapshot: Array<Work>) => {
+    this._fetch.getPortfolio().subscribe((snapshot: Array<Work>) => {
       if (this._initPortfolio.length === 0 || this.portfolio.length === 0) {
         this._initPortfolio = snapshot;
         this.portfolio = snapshot;

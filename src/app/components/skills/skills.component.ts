@@ -11,7 +11,6 @@ import { FetchService } from '../../services/fetch.service';
 })
 export class SkillsComponent {
 
-  data: Observable<{}>;
   skills: Skills = {};
   skillsGroups: string[] = [];
   filters: SkillsFilter = {
@@ -21,8 +20,6 @@ export class SkillsComponent {
   };
 
   constructor(private _fetch: FetchService) {
-    this.data = this._fetch.getData();
-
     this._fetch.getSkillsPriority().subscribe((snapshot: string[]) => {
       this.initSkillPriorities(snapshot);
     });

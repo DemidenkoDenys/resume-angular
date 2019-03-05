@@ -11,12 +11,9 @@ import { FetchService } from '../../services/fetch.service';
 })
 export class PortfolioComponent {
 
-  data: Observable<{}>;
   filters: {} = { all: true };
 
-  constructor(private _fetch: FetchService) {
-    this.data = this._fetch.getData();
-  }
+  constructor(private _fetch: FetchService) {}
 
   onFilterChanged(filters) {
     this.filters = Object.assign({}, filters);

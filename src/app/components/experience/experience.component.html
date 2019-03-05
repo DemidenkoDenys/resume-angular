@@ -1,12 +1,11 @@
 <section className="experience-section">
 
-  <app-section-title [title]="(data | async)?.headers.experience"></app-section-title>
+  <app-section-title [title]="'headers.experience' | translate"></app-section-title>
 
   <p class="section-description" *ngIf="(data | async)?.descriptions.experience as experience">{{ experience }}</p>
 
   <ul class="experience-list">
 
-      <!-- <ng-container *ngFor="let item of ((data | async)?.experience | keyvalue); let i = index; let count = count;"> -->
       <ng-container *ngFor="let item of experiences | async; let i = index; let count = count;">
 
       <li

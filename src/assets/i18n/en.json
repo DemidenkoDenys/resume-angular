@@ -1,4 +1,17 @@
 {
+  "headers": {
+    "experience": "Experience",
+    "skills": "Skills",
+    "qualities": "Personal qualities",
+    "goal": "Goal",
+    "interests": "Interests",
+    "portfolio": "Examples of works"
+  },
+  "descriptions": {
+    "goal": "Learn node.js, backend and react native to create mobile applications. Also I dream to learn Java and Swift for android and iOS developing. I aspire to become an all known programmer and attain Senior level",
+    "interests": "In my live a lot of hobbies, which help me to keep myself from going crazy, have a good time and improve myself...",
+    "portfolio": ""
+  },
   "experience": {
     "1984": {
       "title": "Birth year",

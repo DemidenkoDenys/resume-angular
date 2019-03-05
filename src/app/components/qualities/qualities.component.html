@@ -1,8 +1,6 @@
 <section class="qualities-section">
 
-    <app-section-title [title]="(data | async)?.headers.qualities"></app-section-title>
-
-    <p class="section-description" *ngIf="(data | async)?.descriptions.qualities as qualities">{{ qualities }}</p>
+    <app-section-title [title]="'headers.qualities' | translate"></app-section-title>
 
     <ul class="qualities-list">
       <ng-container *ngFor="let item of (data | async)?.qualities">

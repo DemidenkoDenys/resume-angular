@@ -1,11 +1,15 @@
 /// <reference path="./menu.d.ts" />
 
-import { Injectable } from '@angular/core';
+import { Injectable, Output, EventEmitter } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
+import { FetchService } from '../../services/fetch.service';
 
 @Injectable()
 export class MenuService {
 
+  @Output() onModalOpen = new EventEmitter<{}>();
+
+  private _images: object;
   private _menus: Array<MenuItem> = [
     {
       description: 'Перейти на аккаунт Djinni',
@@ -30,18 +34,33 @@ export class MenuService {
       show: true,
       current: false,
       prevent: true,
+      action: () => this.onModalOpen.emit({
+        open: true, 
+        url: this._images['diplom'],
+        type: 'centered'
+      })
     },
     {
       description: 'Показать рецензию по диплому',
       show: true,
       current: false,
       prevent: true,
+      action: () => this.onModalOpen.emit({
+        open: true, 
+        url: this._images['review'],
+        type: 'vertical-scroll'
+      })
     },
     {
       description: 'Показать оценки',
       show: true,
       current: false,
       prevent: true,
+      action: () => this.onModalOpen.emit({
+        open: true, 
+        url: this._images['grades'],
+        type: 'centered'
+      })
     },
     {
       description: 'Скачать PDF версию резюме',
@@ -123,7 +142,12 @@ export class MenuService {
     }
   ]
 
-  constructor(private _translate: TranslateService) {}
+  constructor(
+    private _translate: TranslateService,
+    private _fetchService: FetchService
+  ) {
+    this._fetchService.getImages().subscribe(snapshot => this._images = snapshot);
+  }
 
   changeLanguage(language: string) {
     this._translate.use(language);

@@ -9,10 +9,6 @@ import { FetchService } from '../../services/fetch.service';
 })
 export class QualitiesComponent {
 
-  data: Observable<{}>;
-
-  constructor(private _fetch: FetchService) {
-    this.data = this._fetch.getData();
-  }
+  constructor(private _fetch: FetchService) {}
 
 }

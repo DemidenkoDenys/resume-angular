@@ -16,7 +16,13 @@ export class MenuComponent {
 
   screen: ScreenXX;
   fixed: boolean = false;
+  images: object;
   menuItems: MenuItem[] = [];
+  modal: object = {
+    open: false,
+    url: '',
+  };
+  styleHtmlPreventScroll: HTMLStyleElement;
 
   constructor(
     private _menuService: MenuService,
@@ -25,20 +31,49 @@ export class MenuComponent {
     @Inject(WINDOW) private _window: Window
   ){
     this.setScreen();
+    this.styleHtmlPreventScroll = this._buildStyleElement();
     this.menuItems = this._menuService.getMenus();
   }
 
   ngOnInit(){
     this._responsiveService.getScreenStatus().subscribe(() => this.setScreen());
     this.onResize();
+
+    this._menuService.onModalOpen.subscribe(({ open, url, type }) => {
+      this.openModal(open, url, type);
+    });
   }
 
-  setScreen() {
+  setScreen() : void {
     this.screen = this._responsiveService.screenSize;
   }
 
-  onResize() {
+  onResize() : void {
     this._responsiveService.checkScreen();
+  }
+
+  openModal(open: boolean = true, url?: string, type?: string ) : void {
+    this.modal = { open, url, type };
+    if (open) {
+      this.preventHtmlScroll();
+    } else {
+      this.allowHtmlScroll();    
+    }
+  }
+
+  preventHtmlScroll() {
+    this._document.body.appendChild(this.styleHtmlPreventScroll);
+  }
+
+  allowHtmlScroll() {
+    this._document.body.removeChild(this.styleHtmlPreventScroll);
+  }
+
+  private _buildStyleElement() : HTMLStyleElement {
+    const style = document.createElement("style");
+    style.type = "text/css";
+    style.textContent = 'html { overflow: hidden; }';
+    return style;
   }
 
   @HostListener("window:scroll", [])

@@ -9,7 +9,6 @@ import { FetchService } from '../../services/fetch.service';
 })
 export class InterestsComponent {
 
-  data: Observable<{}>;
   interests: Observable<{}>;
 
   sliderSettings = {
@@ -28,8 +27,7 @@ export class InterestsComponent {
   };
 
   constructor(private _fetch: FetchService) {
-    this.data = this._fetch.getData();
-    this.interests = this._fetch.getInterests().valueChanges();
+    this.interests = this._fetch.getInterests();
   }
 
 }

@@ -22,11 +22,11 @@ import { SectionTitleComponent } from './components/section-title/section-title.
 import { SkillsComponent } from './components/skills/skills.component';
 import { QualitiesComponent } from './components/qualities/qualities.component';
 import { GoalComponent } from './components/goal/goal.component';
-import { DescriptionComponent } from './components/description/description.component';
 import { InterestsComponent } from './components/interests/interests.component';
 import { PortfolioComponent } from './components/portfolio/portfolio.component';
 import { FiltersComponent } from './components/portfolio/filters/filters.component';
 import { PortfolioListComponent } from './components/portfolio/portfolio-list/portfolio-list.component';
+import { ModalComponent } from './components/modal/modal.component';
 
 @NgModule({
   declarations: [
@@ -37,11 +37,11 @@ import { PortfolioListComponent } from './components/portfolio/portfolio-list/po
     SkillsComponent,
     QualitiesComponent,
     GoalComponent,
-    DescriptionComponent,
     InterestsComponent,
     PortfolioComponent,
     FiltersComponent,
-    PortfolioListComponent
+    PortfolioListComponent,
+    ModalComponent
   ],
   imports: [
     BrowserModule,

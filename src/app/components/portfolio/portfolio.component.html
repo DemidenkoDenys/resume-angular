@@ -1,8 +1,8 @@
 <section class="portfolio-section">
  
-  <app-section-title [title]="(data | async)?.headers.portfolio"></app-section-title>
+  <app-section-title [title]="'headers.portfolio' | translate"></app-section-title>
 
-  <p class="section-description" *ngIf="(data | async)?.descriptions.portfolio as portfolio">{{ portfolio }}</p>
+  <p class="section-description">{{ 'descriptions.portfolio' | translate }}</p>
 
   <app-filters (onFilterChanged)="onFilterChanged($event)"></app-filters>
 

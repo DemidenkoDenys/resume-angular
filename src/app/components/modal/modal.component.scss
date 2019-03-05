@@ -1,0 +1,52 @@
+.modal{
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(0, 0, 0, .8);
+  z-index: 999;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: 1;
+
+  &.opened{
+    opacity: 1;
+    visibility: visible;
+    pointer-events: all;
+  }
+
+  &.centered{
+    padding: 20px;
+    align-items: center;
+  }
+
+  &-content{
+    width: 100%;
+
+    .vertical-scroll &{
+      display: inline-block;
+      padding: 20px 0;
+      overflow-y: auto;
+    }
+
+    .centered &{
+      width: auto;
+    }
+  }
+
+  &-image{
+    width: auto;
+    height: auto;
+
+    .centered &{
+      max-width: 100%;
+      max-height: 100%;
+    }
+  }
+}

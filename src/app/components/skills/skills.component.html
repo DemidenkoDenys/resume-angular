@@ -1,8 +1,6 @@
 <section class="skills-section">
 
-  <app-section-title [title]="(data | async)?.headers.skills"></app-section-title>
-
-  <p class="section-description" *ngIf="(data | async)?.descriptions.skills as skills">{{ skills }}</p>
+  <app-section-title [title]="'headers.skills' | translate"></app-section-title>
 
   <p class="skills-filters">
     <ng-container *ngFor="let filter of filters | keyvalue">
