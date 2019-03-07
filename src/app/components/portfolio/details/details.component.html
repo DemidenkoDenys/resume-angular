@@ -1,30 +1,33 @@
 <section class='portfolio-work__opened'>
 
-  <app-section-title [title]="'headers.portfolio' | translate"></app-section-title>
+  <app-section-title [title]="'portfolio.html.short' | translate"></app-section-title>
 
   <p class="section-description">{{ 'descriptions.portfolio' | translate }}</p>
 
-    
-    <div class='portfolio-opened__description appear'>
-        <img class="portfolio-opened__print-version" [src]="" [alt]="" />
-        <p class='portfolio-opened__short-description'></p>
-        <p class='portfolio-opened__full-description'></p>
-        <p class="portfolio-opened__print-version"></p>
+    <div class='portfolio-work__description appear'>
+        <img class="portfolio-work__image print-version" src="../../../../assets/img/devices-frames/ipad.png" [alt]="" />
+        <p class='portfolio-work__short-description'></p>
+        <p class='portfolio-work__full-description'></p>
+        <p class="portfolio-work print-version"></p>
     </div>
 
-    <div class="" ref="">
+    <div
+      class="work-in-frame__device-wrapper"
+      [ngClass]="'work-in-frame__device-wrapper_' + currentMode.name"
+      ref="">
 
-        <img class=""
-             [src]=""
-             [alt]="" />
+        <img class="work-in-frame__device-cover"
+             [src]="'../../../../assets/img/devices-frames/' + currentMode.name + '.png'"
+             alt="device frame" />
 
-        <iframe class=""
-                data-scale=""
-                data-width=""
-                data-height=""
-                title=""
-                ref=""
-                [style]="{ width: width + 'px', height: height + 'px' }" >
+        <iframe src="https://demidenko-denys.pp.ua"
+                (load)="onIframeLoaded($event)"
+                class="work-in-frame work-in-frame_waitingggg"
+                [ngClass]="'work-in-frame_' + currentMode.name"
+                scale-iframe
+                [scale]="currentMode.scale"
+                [width]="currentMode.width"
+                [height]="currentMode.height">
         </iframe>
 
         <div class='work-in-frame__loading-icon'></div>

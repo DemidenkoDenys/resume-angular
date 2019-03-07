@@ -1,48 +1,49 @@
-.portfolio-work {
-  &__opened {
-    text-align: center;
-    margin-bottom: 100px;
-    @media screen and (max-width: 768px) {
-      padding-right: 35px;
-    }
-
-    .glyphicon {
-      font-size: 18px;
-
-      &.glyphicon-menu-left {
-        color: #b8bd56;
-        margin-right: 10px;
+.portfolio{
+  &-work {
+    &__opened {
+      text-align: center;
+      margin-bottom: 100px;
+      @media screen and (max-width: 768px) {
+        padding-right: 35px;
       }
 
-      &.glyphicon-new-window {
-        color: #00CCCC;
-        margin-left: 10px;
+      .glyphicon {
+        font-size: 18px;
+
+        &.glyphicon-menu-left {
+          color: #b8bd56;
+          margin-right: 10px;
+        }
+
+        &.glyphicon-new-window {
+          color: #00CCCC;
+          margin-left: 10px;
+        }
+      }
+
+      &__description {
+        width: 100%;
+        margin: 0 0 35px 10px;
+        padding-top: 25px;
+        @media screen and (min-width: 480px) {
+          width: 60%;
+          margin: 0 auto 35px;
+        }
+      }
+
+      &__short-description {
+        margin-bottom: 10px;
+        font-weight: bold;
       }
     }
-
-    &__description {
-      width: 100%;
-      margin: 0 0 35px 10px;
-      padding-top: 25px;
-      @media screen and (min-width: 480px) {
-        width: 60%;
-        margin: 0 auto 35px;
-      }
-    }
-
-    &__short-description {
-      margin-bottom: 10px;
-      font-weight: bold;
-    }
-
-    &__print-version {
+    & + .work-in-frame__loading-icon {
       display: none;
     }
   }
+}
 
-  & + .work-in-frame__loading-icon {
-    display: none;
-  }
+.print-version {
+  display: none;
 }
 
 .work-in-frame {
@@ -113,7 +114,7 @@
       }
     }
 
-    .work-in-frame__device-wrapper_ipad-pro & {
+    .work-in-frame__device-wrapper_ipadPro & {
       width: 4.766%;
       height: 3.4375%;
       bottom: 5.2%;
@@ -177,7 +178,7 @@
       }
     }
 
-    &_ipad-pro {
+    &_ipadPro {
       width: 174.1mm;
       height: 250.6mm;
       @media screen and (max-width: 768px) {

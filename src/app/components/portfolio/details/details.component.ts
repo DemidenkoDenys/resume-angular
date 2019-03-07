@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { PortfolioService } from '../portfolio.service';
+import { ScaleIframeDirective } from '../../../directives/scale-iframe.directive';
 
 @Component({
   selector: 'app-details',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DetailsComponent implements OnInit {
 
-  constructor() { }
+  currentMode: object = {};
 
-  ngOnInit() {
+  constructor(portfolioServise: PortfolioService) {
+    this.currentMode = portfolioServise.gerDefaultMode();
   }
 
+  ngOnInit() {}
+
+  onIframeLoaded(e) {
+    console.log('iframe loaded');
+  }
 }

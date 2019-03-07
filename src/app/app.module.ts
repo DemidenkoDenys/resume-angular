@@ -28,6 +28,8 @@ import { FiltersComponent } from './components/portfolio/filters/filters.compone
 import { PortfolioListComponent } from './components/portfolio/portfolio-list/portfolio-list.component';
 import { ModalComponent } from './components/modal/modal.component';
 import { DetailsComponent } from './components/portfolio/details/details.component';
+import { PortfolioIframeDirective } from './directives/portfolio-iframe.directive';
+import { ScaleIframeDirective } from './directives/scale-iframe.directive';
 
 @NgModule({
   declarations: [
@@ -43,7 +45,9 @@ import { DetailsComponent } from './components/portfolio/details/details.compone
     FiltersComponent,
     PortfolioListComponent,
     ModalComponent,
-    DetailsComponent
+    DetailsComponent,
+    PortfolioIframeDirective,
+    ScaleIframeDirective
   ],
   imports: [
     BrowserModule,
