@@ -1,3 +1,5 @@
+/// <reference path="../portfolio.d.ts" />
+
 import { Component, Output, EventEmitter } from '@angular/core';
 import { Observable } from 'rxjs';
 import { FetchService } from '../../../services/fetch.service';
@@ -9,19 +11,19 @@ import { FetchService } from '../../../services/fetch.service';
 })
 export class FiltersComponent {
 
-  @Output() onFilterChanged = new EventEmitter<{}>();
+  @Output() onFilterChanged = new EventEmitter<FiltersInterface>();
 
   filters$: Observable<any>;
-  filters = {};
-  filtersKeys: Array<string> = [];
+  filters: FiltersInterface = {};
+  filtersKeys: string[] = [];
 
   constructor(private _fetch: FetchService) {
-    this.initFilters();  
+    this.initFilters();
   }
 
-  initFilters(){
+  initFilters(): void{
     this.filters$ = this._fetch.getFilters();
-    this.filters$.subscribe(snapshot => {
+    this.filters$.subscribe((snapshot: FiltersInterface) => {
       if (Object.keys(this.filters).length === 0) {
         this.setFilters(snapshot);
         this.resetFilters();
@@ -29,23 +31,24 @@ export class FiltersComponent {
     });
   }
 
-  setFilters(filters: any) {
+  setFilters(filters: FiltersInterface): void {
     this.filtersKeys = Object.keys(filters);
     this.filters = filters;
     this.onFilterChanged.emit(filters);
   }
 
-  resetFilters() {
-    this.filtersKeys.map(key => this.filters[key] = false);
+  resetFilters(): void {
+    this.filtersKeys.map((key: string) => this.filters[key] = false);
     this.filters['all'] = true;
   }
 
-  onFilterChecked(key: string, event: any){
-
+  onFilterChecked(key: string, event: any): void{
     if (key === 'all') {
       this.resetFilters();
     } else {
-      if (event.target.checked) { this.filters['all'] = false; }
+      if (event.target.checked) {
+        this.filters['all'] = false;
+      }
     }
 
     this.filters[key] = event.target.checked;
@@ -56,5 +59,4 @@ export class FiltersComponent {
 
     this.onFilterChanged.emit(this.filters);
   }
-
 }

@@ -11,7 +11,7 @@ import { FetchService } from '../../services/fetch.service';
 })
 export class ExperienceComponent{
 
-  experiences: Observable<any>;
+  experiences: Observable<{}>;
   upperCounter: number = 0;
 
   constructor(private _fetch: FetchService) {

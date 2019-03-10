@@ -1,13 +1,14 @@
 <nav (window:resize)="onResize()">
 
-  <ul
+   <ul
     class="main-menu"
     [class.main-menu_mobile]="screen == 'sm'"
     [class.main-menu_fixed]="fixed"
+    [class.main-menu_mobile_opened]="mobileOpened"
   >
 
     <li class="main-menu__item-holder main-menu__item-holder_mobile-button">
-      <a class="main-menu__item-link_mobile-button" href="">
+      <a class="main-menu__item-link_mobile-button" (click)="toggleMobileMenu(); $event.preventDefault(); ">
         <span class="glyphicon glyphicon-menu-hamburger"></span>
       </a>
     </li>
@@ -18,7 +19,7 @@
           <a
             class="main-menu__item-link"
             target="_blank"
-            [href]="item.href"
+            [href]="item.href ? item.href : '#'"
             [attr.download]="item.download ? '' : null"
             [style.background-position]="(i * 5.9) + '% 0'"
             (click)="item.action && item.action(); item.prevent && $event.preventDefault();"

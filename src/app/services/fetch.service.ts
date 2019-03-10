@@ -1,43 +1,36 @@
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase } from '@angular/fire/database';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FetchService {
-  //TODO unsubscribing
 
   constructor(public db: AngularFireDatabase){}
 
-  getFilters() {
+  getFilters() : Observable<{}> {
     return this.db.object('filters').valueChanges();
   }
-
-  getPortfolio() {
+  getPortfolio() : Observable<{}> {
     return this.db.list('portfolio', ref => ref.orderByChild('show')).valueChanges();
   }
-
-  getInterests() {
+  getInterests() : Observable<{}> {
     return this.db.list('interests', ref => ref.orderByChild('show')).valueChanges();
   }
-
-  getExperience() {
+  getExperience() : Observable<{}> {
     return this.db.list('experience').valueChanges();
   }
-
-  getSkills() {
+  getSkills() : Observable<{}> {
     return this.db.object('skills').valueChanges();
   }
-
-  getSkillsPriority() {
+  getSkillsPriority() : Observable<{}> {
     return this.db.list('skills-priority').valueChanges();
   }
-
-  getImages() {
+  getImages() : Observable<{}> {
     return this.db.object('images').valueChanges();
   }
-
-  getQualities() {
+  getQualities() : Observable<{}> {
     return this.db.list('qualities').valueChanges();
   }
 }

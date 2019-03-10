@@ -1,12 +1,12 @@
 <ol class="portfolio-list">
 
   <ng-container *ngFor="let work of portfolio">
-    <li class="portfolio-item" *ngIf="work && work.show">
+    <li class="portfolio-item" *ngIf="work && work.show" in-viewport>
 
       <div class="portfolio-item__wrapper">
         <img class="portfolio-item__image" [src]="work.image" alt="" />
 
-        <a class="portfolio-item__link-wrapper">
+        <a class="portfolio-item__link-wrapper" [routerLink]="['/' + work.title]">
           <h3 class="portfolio-item__header">{{ getTitleKey(work.title) | translate }}</h3>
           <p class="portfolio-item__short-description">{{ getShortKey(work.title) | translate }}</p>
 

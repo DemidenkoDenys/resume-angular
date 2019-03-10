@@ -2,9 +2,9 @@
 
   <app-section-title [title]="'headers.interests' | translate"></app-section-title>
 
-  <p class="section-description">{{ 'descriptions.interests' | translate }}</p>
+  <p class="section-description" in-viewport>{{ 'descriptions.interests' | translate }}</p>
 
-  <ngx-slick-carousel class="interests-list carousel" #slickModal="slick-carousel" [config]="sliderSettings">
+  <ngx-slick-carousel class="interests-list carousel" #slickModal="slick-carousel" [config]="sliderSettings" in-viewport>
     <div ngxSlickItem class="interests-item" *ngFor="let slide of interests | async; let i = index">
       <span *ngIf="slide.taboo" class="interests-item__taboo glyphicon glyphicon-ban-circle"></span>
       <ejs-tooltip [content]="'interests.' + slide.title | translate" cssClass="tooltip-window" [mouseTrail]='true'>

@@ -156,5 +156,8 @@
       "description": ""
     }
   },
-  "filter-tip": "Set filter "
+  "service": {
+    "back-to-portfolio": "Back to portfolio list",
+    "filter-tip": "Show works where used "
+  }
 }

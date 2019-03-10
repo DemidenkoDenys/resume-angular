@@ -18,7 +18,7 @@
       <h3 class="skills-item__header">{{ 'skills.' + group | translate }}</h3>
       <ol class="skills-list">
         <ng-container *ngFor="let skill of skills[group]">
-          <li class="skills-item animated" [ngClass]="'skills-item_level-' + skill.level">
+          <li class="skills-item" [ngClass]="'skills-item_level-' + skill.level" in-viewport>
             <strong class="skills-item__title">
               <span class="skills-item__icon" [ngClass]="'icon-' + (skill.icon || skill.title | lowercase)"></span>
               {{ skill.title }}

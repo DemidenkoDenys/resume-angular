@@ -13,3 +13,13 @@ interface Work {
   techs: Technology[]
 }
 
+interface Mode {
+  name: string,
+  scale: number,
+  width: number,
+  height: number
+}
+
+interface Modes {
+  [key: string]: Mode
+}

@@ -1,3 +1,5 @@
+/// <reference path="./portfolio.d.ts" />
+
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -5,9 +7,9 @@ import { Injectable } from '@angular/core';
 })
 export class PortfolioService {
 
-  private _defaultMode = 'desktop';
+  private _defaultMode: string = 'iphone';
 
-  private _viewModes = {
+  private _viewModes: Modes = {
     iphone: {
       name: 'iphone',
       scale: 0.8387942333,
@@ -26,8 +28,8 @@ export class PortfolioService {
       width: 1536,
       height: 2048
     },
-    ipadPro : {
-      name: 'ipadPro',
+    ipadpro : {
+      name: 'ipadpro',
       scale : 0.9,
       width : 1668,
       height : 2224
@@ -48,15 +50,15 @@ export class PortfolioService {
 
   constructor() {}
 
-  getViewModes() {
+  getViewModes(): Modes {
     return this._viewModes;
   }
 
-  getViewMode(mode: string) {
+  getViewMode(mode: string): Mode | {} {
     return this._viewModes.hasOwnProperty(mode) ? this._viewModes[mode] : {};
   }
 
-  gerDefaultMode() {
+  gerDefaultMode(): Mode {
     return this._viewModes[this._defaultMode];
   }
 

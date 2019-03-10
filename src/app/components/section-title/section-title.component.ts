@@ -1,4 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-section-title',
@@ -7,10 +8,17 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class SectionTitleComponent implements OnInit{
 
-  @Input() title: string;
+  back: boolean;
 
-  constructor() {}
+  @Input() title: string;
+  @Input() set backLink(value: any) { this.back = (value != null && `${value}` !== 'false'); }
+
+  constructor(private _location: Location) {}
 
   ngOnInit() {}
+
+  backClicked() {
+    this._location.back();
+  }
 
 }

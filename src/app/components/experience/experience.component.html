@@ -2,7 +2,7 @@
 
   <app-section-title [title]="'headers.experience' | translate"></app-section-title>
 
-  <p class="section-description" *ngIf="(data | async)?.descriptions.experience as experience">{{ experience }}</p>
+  <p class="section-description" in-viewport>{{ 'descriptions.experience' | translate }}</p>
 
   <ul class="experience-list">
 
@@ -16,7 +16,7 @@
         [style.ms-flex-order]="i % 2 === 0 ? ++upperCounter : ++count"
       >
 
-        <figure class="experience-item__image-wrapper appear">
+        <figure class="experience-item__image-wrapper">
           <img class="experience-item__image" src="{{ item.image }}" alt="">
         </figure>
 
@@ -26,10 +26,10 @@
           <time class="experience-item__year">
             <span class="experience-item__year-text">{{ item.year }}</span>
           </time>
-          <span>{{ 'experience.' + item.year + '.title' | translate }}</span>
+          <span in-viewport>{{ 'experience.' + item.year + '.title' | translate }}</span>
         </h3>
 
-        <p class="experience-item__description appear">{{ 'experience.' + item.year + '.description' | translate }}</p>
+        <p class="experience-item__description" in-viewport>{{ 'experience.' + item.year + '.description' | translate }}</p>
 
       </li>
 

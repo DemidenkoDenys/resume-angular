@@ -1,6 +1,4 @@
 import { Component } from '@angular/core';
-import { Observable } from 'rxjs';
-import { FetchService } from '../../services/fetch.service';
 
 @Component({
   selector: 'app-goal',
@@ -9,6 +7,6 @@ import { FetchService } from '../../services/fetch.service';
 })
 export class GoalComponent {
 
-  constructor(private _fetch: FetchService) {}
+  constructor() {}
 
 }

@@ -1,40 +1,39 @@
 <section class='portfolio-work__opened'>
 
-  <app-section-title [title]="'portfolio.html.short' | translate"></app-section-title>
+  <app-section-title [title]="'portfolio.' + workName + '.title' | translate" backLink></app-section-title>
 
-  <p class="section-description">{{ 'descriptions.portfolio' | translate }}</p>
+  <div class='portfolio-work__description' in-viewport>
+    <img class="portfolio-work__image print-version" [src]="deviceImageSource" [alt]="" />
+    <p class='portfolio-work__full-description'>{{ 'portfolio.' + workName + '.description' | translate }}</p>
+    <p class="portfolio-work print-version">{{ 'portfolio.' + workName + '.description' | translate }}</p>
+  </div>
 
-    <div class='portfolio-work__description appear'>
-        <img class="portfolio-work__image print-version" src="../../../../assets/img/devices-frames/ipad.png" [alt]="" />
-        <p class='portfolio-work__short-description'></p>
-        <p class='portfolio-work__full-description'></p>
-        <p class="portfolio-work print-version"></p>
-    </div>
+  <div [ngClass]="'work-in-frame__device-wrapper work-in-frame__device-wrapper_' + currentMode.name">
+    <img class="work-in-frame__device-cover" [src]="deviceImageSource" alt="device frame" />
 
-    <div
-      class="work-in-frame__device-wrapper"
-      [ngClass]="'work-in-frame__device-wrapper_' + currentMode.name"
-      ref="">
+    <!-- TODO set real ur -->
+    <iframe src="https://demidenko-denys.pp.ua"
+            scale-iframe
+            class="work-in-frame"
+            [class.work-in-frame_waiting]="!deviceImageSource || !iframeLoaded"
+            (load)="onIframeLoaded()"
+            [scale]="currentMode.scale"
+            [width]="currentMode.width"
+            [height]="currentMode.height"
+            [ngClass]="'work-in-frame_' + currentMode.name"
+            in-viewport
+            (inViewport)="iframeInViewport($event)"></iframe>
 
-        <img class="work-in-frame__device-cover"
-             [src]="'../../../../assets/img/devices-frames/' + currentMode.name + '.png'"
-             alt="device frame" />
+    <div class='work-in-frame__loading-icon'></div>
 
-        <iframe src="https://demidenko-denys.pp.ua"
-                (load)="onIframeLoaded($event)"
-                class="work-in-frame work-in-frame_waitingggg"
-                [ngClass]="'work-in-frame_' + currentMode.name"
-                scale-iframe
-                [scale]="currentMode.scale"
-                [width]="currentMode.width"
-                [height]="currentMode.height">
-        </iframe>
+    <ejs-tooltip [content]="'service.back-to-portfolio' | translate" cssClass="tooltip-window" [mouseTrail]='true'>
+      <a (click)="navigateToList(); $event.preventDefault();" class="work-in-frame__close-cross"></a>
+    </ejs-tooltip>
 
-        <div class='work-in-frame__loading-icon'></div>
+    <ejs-tooltip [content]="'service.back-to-portfolio' | translate" cssClass="tooltip-window" [mouseTrail]='true'>
+      <a (click)="navigateToList(); $event.preventDefault();" class="work-in-frame__close-mobile-button"></a>
+    </ejs-tooltip>
 
-        <!-- <Link to="/" onClick={ this.closeWork } class="work-in-frame__close-cross" data-tip="вернуться к списку работ"></Link>
-        <Link to="/" onClick={ this.closeWork } class="work-in-frame__close-mobile-button"  data-tip="вернуться к списку работ"></Link> -->
-
-    </div>
+  </div>
 
 </section>

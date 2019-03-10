@@ -1,8 +1,6 @@
 /// <reference path="./portfolio.d.ts" />
 
 import { Component } from '@angular/core';
-import { Observable } from 'rxjs';
-import { FetchService } from '../../services/fetch.service';
 
 @Component({
   selector: 'app-portfolio',
@@ -11,11 +9,11 @@ import { FetchService } from '../../services/fetch.service';
 })
 export class PortfolioComponent {
 
-  filters: {} = { all: true };
+  filters: FiltersInterface = { all: true };
 
-  constructor(private _fetch: FetchService) {}
+  constructor() {}
 
-  onFilterChanged(filters) {
+  onFilterChanged(filters: FiltersInterface): void {
     this.filters = Object.assign({}, filters);
   }
 }

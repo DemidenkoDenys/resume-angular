@@ -3,7 +3,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { PortfolioComponent } from './components/portfolio/portfolio.component';
 
 const routes: Routes = [
-  { path: '', component: PortfolioComponent }
+  { path: '', component: PortfolioComponent },
+  { path: '**', redirectTo: '' }
 ];
 
 @NgModule({

@@ -1,3 +1,12 @@
-<h2 class="section__header appear">
+<h2 class="section__header" in-viewport>
+
   <span>#{{ title }}</span>
+
+  <ejs-tooltip [content]="'service.back-to-portfolio' | translate" cssClass="tooltip-window" [mouseTrail]='true'>
+    <a *ngIf="back"
+      (click)="backClicked(); $event.preventDefault();"
+      class="section__header_link-back icon-arrow-back-outline"
+      href="#"></a>
+  </ejs-tooltip>
+
 </h2>

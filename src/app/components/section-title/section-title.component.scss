@@ -32,6 +32,10 @@ $color-second: #0cc;
 		.ie &{
 			background: none;
 		}
-	}
+  }
+  
+  &_link-back{
+    vertical-align: text-bottom;
+    color: $color-second;
+  }
 }
-

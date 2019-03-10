@@ -1,5 +1,6 @@
+/// <reference path="./qualities.d.ts" />
+
 import { Component } from '@angular/core';
-import { Observable } from 'rxjs';
 import { FetchService } from '../../services/fetch.service';
 
 @Component({
@@ -9,10 +10,10 @@ import { FetchService } from '../../services/fetch.service';
 })
 export class QualitiesComponent {
 
-  qualities: any;
+  qualities: Quality[];
 
   constructor(private _fetch: FetchService) {
-    this._fetch.getQualities().subscribe(snapshot => this.qualities = snapshot);
+    this._fetch.getQualities().subscribe((snapshot: Quality[]) => this.qualities = snapshot);
   }
 
 }

@@ -1,7 +1,10 @@
 /// <reference path="../portfolio.d.ts" />
 
 import { Component, Input, SimpleChanges } from '@angular/core';
+import { Router } from '@angular/router';
+
 import { FetchService } from '../../../services/fetch.service';
+import { DetailsComponent } from '../details/details.component';
 
 @Component({
   selector: 'app-portfolio-list',
@@ -10,20 +13,17 @@ import { FetchService } from '../../../services/fetch.service';
 })
 export class PortfolioListComponent {
 
-  @Input() filters: {};
+  @Input() filters: FiltersInterface;
 
-  private _filters: Array<string> = [];
-  private _initPortfolio: Array<Work> = [];
-  
-  public portfolio: Array<Work> = [];
+  private _filters: string[] = [];
+  private _initPortfolio: Work[] = [];
+  public portfolio: Work[] = [];
 
-  constructor(private _fetch: FetchService) {
-    this._fetch.getPortfolio().subscribe((snapshot: Array<Work>) => {
-      if (this._initPortfolio.length === 0 || this.portfolio.length === 0) {
-        this._initPortfolio = snapshot;
-        this.portfolio = snapshot;
-      }
-    });
+  constructor(
+    private _fetch: FetchService,
+    private _router: Router
+  ) {
+    this._fetch.getPortfolio().subscribe((snapshot: Work[]) => this.initPortfolio(snapshot));
   }
 
   ngOnChanges(changes: SimpleChanges) {
@@ -34,22 +34,40 @@ export class PortfolioListComponent {
     }
   }
 
-  executefilters() {
+  initPortfolio(portfolioList: Array<Work>): void {
+    if (this._initPortfolio.length === 0 || this.portfolio.length === 0) {
+      this._initPortfolio = portfolioList;
+      this.portfolio = portfolioList;
+      this.addRoutes();
+    }
+  }
+
+  addRoutes(): void {
+    if (this._initPortfolio.length > 0) {
+      this._initPortfolio.map(work => {
+        if (work.hasOwnProperty('title') && work.title) {
+          this._router.config.unshift({ path: work.title, component: DetailsComponent });
+        }
+      });
+    }
+  }
+
+  executefilters(): void {
     this.portfolio = (this._filters.length && this._filters[0] !== 'all') ?
       this._initPortfolio.map((work: any) => {
-        return Object.keys(work['techs']).some((tech: string) => this._filters.includes(tech) ) ? work : false;
+        return Object.keys(work['techs']).some((tech: string) => this._filters.includes(tech)) ? work : false;
       }) : this._initPortfolio;
   }
 
-  getTitleKey(key?: string) {
+  getTitleKey(key?: string): string {
     return key ? `portfolio.${key}.title` : '';
   }
 
-  getShortKey(key?: string) {
+  getShortKey(key?: string): string {
     return key ? `portfolio.${key}.short` : '';
   }
 
-  getDescriptionKey(key?: string) {
+  getDescriptionKey(key?: string): string {
     return key ? `portfolio.${key}.description` : '';
   }
 

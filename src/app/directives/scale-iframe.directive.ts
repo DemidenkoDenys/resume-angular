@@ -9,16 +9,23 @@ export class ScaleIframeDirective implements OnInit {
   @Input() width: number;
   @Input() height: number;
 
+  private _iframeHTMLElement: HTMLHyperlinkElementUtils;
   private iframeWrapper: HTMLElement;
 
   constructor(
     private iframe: ElementRef,
     private renderer: Renderer2
   ) {
+    this._iframeHTMLElement = iframe.nativeElement;
     this.iframeWrapper = iframe.nativeElement.parentElement;
   }
 
   ngOnInit() {
+    this.scaleIframe();
+    this.resizeIframe();
+  }
+
+  ngOnChanges() {
     this.scaleIframe();
     this.resizeIframe();
   }
@@ -29,12 +36,12 @@ export class ScaleIframeDirective implements OnInit {
   }
 
   resizeIframe() {
-    this.renderer.setStyle(this.iframe.nativeElement, 'width', `${this.width}px`);
-    this.renderer.setStyle(this.iframe.nativeElement, 'height', `${this.height}px`);
+    this.renderer.setStyle(this._iframeHTMLElement, 'width', `${this.width}px`);
+    this.renderer.setStyle(this._iframeHTMLElement, 'height', `${this.height}px`);
   }
 
   scaleIframe() {
-    this.renderer.setStyle(this.iframe.nativeElement, 'transform', `scale(${ this.iframeWrapper.offsetWidth * this.scale / this.width })`);
+    this.renderer.setStyle(this._iframeHTMLElement, 'transform', `scale(${ this.iframeWrapper.offsetWidth * this.scale / this.width })`);
   }
 
 }

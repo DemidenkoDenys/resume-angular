@@ -49,15 +49,12 @@
     color: white;
     transform: scale(1, 1) !important;
     background: linear-gradient(to right, $color-first 40%, $color-second) !important;
+    width: 0;
 
-    &.appear {
-      width: 0;
-
-      &.animated {
-        @for $i from 1 through 20 {
-          &.skills-item_level-#{$i*5} {
-            width: percentage($i*5/100);
-          }
+    &.animated {
+      @for $i from 1 through 20 {
+        &.skills-item_level-#{$i*5} {
+          width: percentage($i*5/100);
         }
       }
     }

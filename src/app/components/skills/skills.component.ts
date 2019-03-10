@@ -1,7 +1,6 @@
 /// <reference path="./skills.d.ts" />
 
 import { Component } from '@angular/core';
-import { Observable } from 'rxjs';
 import { FetchService } from '../../services/fetch.service';
 
 @Component({
@@ -23,7 +22,6 @@ export class SkillsComponent {
     this._fetch.getSkillsPriority().subscribe((snapshot: string[]) => {
       this.initSkillPriorities(snapshot);
     });
-
     this._fetch.getSkills().subscribe((snapshot: FetchedSkills) => {
       this.initSkills(snapshot);
       this.sortSkills();
@@ -38,8 +36,8 @@ export class SkillsComponent {
   initSkills(skills: FetchedSkills): void {
     this.skills = {};
     this.skillsGroups.map((group: string) => {
-      for(let key in skills) {
-        if(skills[key].type === group) {
+      for (let key in skills) {
+        if (skills[key].type === group) {
           if (!this.skills[group]) {
             this.skills[group] = [];
           }
@@ -49,24 +47,24 @@ export class SkillsComponent {
     });
   }
 
-  sortSkills(prop: string = 'show', desc: boolean = true) {
+  sortSkills(prop: string = 'show', desc: boolean = true): void {
     const checkProp = (item: object) => item.hasOwnProperty(prop) ? item[prop] : (desc ? Number.MAX_SAFE_INTEGER : -1);
-    for(let group in this.skills){
+    for (let group in this.skills){
       this.skills[group].sort((prev: Skill, next: Skill) => {
         return checkProp(prev) < checkProp(next) ? (-1 * (desc ? 1 : -1)) : (1 * (desc ? 1 : -1));
       });
     }
   }
 
-  executeFilter(filter: any) {
+  executeFilter(filter: any): void {
     let { key: name, value } = filter;
     this.clearFilters();
     this.filters[name] = value == 1 ? -1 : 1;
     this.sortSkills(name, value == 1);
   }
 
-  clearFilters() {
-    for(let key in this.filters) {
+  clearFilters(): void {
+    for (let key in this.filters) {
       this.filters[key] = 0;
     }
   }

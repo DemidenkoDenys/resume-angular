@@ -55,3 +55,12 @@ ul, ol{
   padding: 10px 20px;
   margin-top: -25px;
 }
+
+.in-viewport{
+	opacity: 0;
+}
+
+.animated{
+	transition: .5s .5s opacity;
+	opacity: 1;
+}

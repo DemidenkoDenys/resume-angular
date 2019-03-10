@@ -28,8 +28,8 @@ import { FiltersComponent } from './components/portfolio/filters/filters.compone
 import { PortfolioListComponent } from './components/portfolio/portfolio-list/portfolio-list.component';
 import { ModalComponent } from './components/modal/modal.component';
 import { DetailsComponent } from './components/portfolio/details/details.component';
-import { PortfolioIframeDirective } from './directives/portfolio-iframe.directive';
 import { ScaleIframeDirective } from './directives/scale-iframe.directive';
+import { InViewportDirective } from './directives/in-viewport.directive';
 
 @NgModule({
   declarations: [
@@ -46,8 +46,8 @@ import { ScaleIframeDirective } from './directives/scale-iframe.directive';
     PortfolioListComponent,
     ModalComponent,
     DetailsComponent,
-    PortfolioIframeDirective,
-    ScaleIframeDirective
+    ScaleIframeDirective,
+    InViewportDirective,
   ],
   imports: [
     BrowserModule,
@@ -56,6 +56,7 @@ import { ScaleIframeDirective } from './directives/scale-iframe.directive';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
     SlickCarouselModule,
+    TooltipModule,
     TranslateModule.forRoot({
       loader: {
           provide: TranslateLoader,
@@ -63,12 +64,14 @@ import { ScaleIframeDirective } from './directives/scale-iframe.directive';
           deps: [ HttpClient ]
       }
     }),
-    TooltipModule,
   ],
   providers: [
     MenuService,
     FetchService,
     WINDOW_PROVIDERS,
+  ],
+  entryComponents: [
+    DetailsComponent
   ],
   bootstrap: [ AppComponent ]
 })
