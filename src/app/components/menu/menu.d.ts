@@ -3,7 +3,7 @@ interface MenuItem {
   href?: string,
   prevent?: boolean,
   download?: boolean,
-  description: string,
+  title: string,
   action?(): void,
 }
 

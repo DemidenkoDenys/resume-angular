@@ -47,6 +47,7 @@ export class DetailsComponent implements OnDestroy {
     this.deviceViewSubscriber = this._menuService.onDeviceViewChanged.subscribe((modeName: string) => {
       if (this.modes.hasOwnProperty(modeName)) {
         this.currentMode = this.modes[modeName];
+        this.loadImageAsync(this.getFrameSrc(this.currentMode.name));
       }
     });
 

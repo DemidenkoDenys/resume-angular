@@ -1,4 +1,24 @@
 {
+  "menu": {
+    "djinni": "Перейти на аккаунт Djinni",
+    "github": "Перейти на репозиторий Github",
+    "linkedin": "Перейти на аккаунт LinkedIn",
+    "diplom": "Показать диплом",
+    "review": "Показать рецензию к диплому",
+    "grades": "Показать оценки",
+    "pdf": "Скачать PDF версию резюме",
+    "doc": "Скачать DOC версию резюме",
+    "print": "Распечатать резюме",
+    "ru": "Переключить на русский язык",
+    "ua": "Переключить на украинский язык",
+    "en": "Переключить на английский язык",
+    "iphone": "Открыть в iPhone 5",
+    "samsung": "Открыть в Samsung Galaxy S7",
+    "ipad": "Открыть в iPad Classic",
+    "ipadpro": "Открыть в iPad Pro",
+    "laptop": "Открыть в окне Laptop",
+    "desktop": "Открыть в окне Desktop Monitor"
+  },
   "headers": {
     "experience": "Опыт",
     "skills": "Навыки",
@@ -45,12 +65,12 @@
       "description": "Фрилансер - верстка веб-страниц, адаптация CMS шаблонов под макет заказчика, исправление ошибок кроссбраузерности, доработка и корректировка дизайна"
     },
     "2016": {
-      "title": "Трейни frontend разработчик Webiart",
+      "title": "Трейни frontend разработчик",
       "description": "Прошел 3-месячный оплачиваемый тренинг веб-школы Demiart, в течение которого создал 4 одностраничных успешно реализованных сайта"
     },
     "2017": {
       "title": "Frontend разработчик BigDrop",
-      "description": "Работал frontend разработчиком в компании BigDrop. В обязанности входило - frontend многостраничных сайтов и интернет-магазинов по уникальному дизайну для интеграции с Wordpress"
+      "description": "Работал в компании BigDrop в течение года. В обязанности входило - frontend многостраничных сайтов и интернет-магазинов по уникальному дизайну для интеграции с Wordpress"
     },
     "2018": {
       "title": "React/Angular разработчик DigitalSuits",
@@ -74,89 +94,79 @@
   },
   "portfolio": {
     "html": {
-      "title": "HTML Handbook on React",
-      "short": "React ES6 application",
-      "description": "Interactive handbook of HTML tags on React/Redux technology. Filters, search, moveable mtitleu with tag pointer. Project was developing during 5 days on the bundler create-react-app."
+      "title": "Справочник HTML на React",
+      "short": "Приложение на React",
+      "description": "Интерактивная справка HTML тегов на React/Redux. Фильтрация, поиск, движущиеся меню с указателем. Проект готовился 5 дней с использованием платформы create-react-app."
     },
     "magnat-lzr":{
-      "title": "Headphones Magnat LZR",
-      "short": "",
-      "description": ""
+      "title": "Магазин наушников Magnat",
+      "short": "Одностраничный сайт с нуля",
+      "description": "Кастомный HTML5 Video плеер на главной, адаптивный дизайн с поддержкой на мобильных устройствах. Модульная структура JS скрипта."
     },
     "pizza":{
-      "title": "Application 'Pizzeria'",
-      "short": "Landing page on Angular 2 ES6",
-      "description": "Educational project on Angular2 (angular-cli). On the website implemented online store of pizzas, compiling from ingredients and adding to basket. All data saving in localStorage."
+      "title": "Приложение 'Пиццерия'",
+      "short": "Одностраничник на Angular 2",
+      "description": "Учебный проект на Angular2 (angular-cli). На сайте реализован онлайн-магазин пиццы, сбор из ингредиентов и добавление в корзину. Все данные хранятся в localStorage."
     },
     "resume":{
-      "title": "Interactive Resume",
-      "short": "Application on React",
-      "description": "Application on Angular with language changing feature, viewing work from portfolio on different resolutions. Work created on Webpack bundler, responsive design."
+      "title": "Интерактивное резюме",
+      "short": "Одностраничное резюме на Angular",
+      "description": "Приложение на Angular с интернационализацией, просмотром работы из портфолио в разных устройствах. Работа выполнена на сборке Webpack, с получением данных из Firebase, адаптивная верстка."
     },
     "value":{
-      "title": "Value Garden Supply'",
-      "short": "Pixel Perfect Page",
-      "description": "Crossbrowser markup of webpage by JPG layout. Responsive on my own opinion."
+      "title": "Value Garden Supply",
+      "short": "Страница пиксель в пиксель",
+      "description": "Кроссбраузерная верстка страницы по JPG макету. Реализация адаптивности на мое усмотрение."
     },
     "naturetour":{
-      "title": "Nature Tour'",
-      "short": "Pixel Perfect Page",
-      "description": "Crossbrowser markup of webpage by PSD layout with implementation of slider on JavaScript. Responsive on my own opinion. Preprocessor LESS used."
+      "title": "Nature Tour",
+      "short": "Страница пиксель в пиксель",
+      "description": "Кроссбраузерная верстка страницы по PSD макету с реализацией динамичного слайдера на JavaScript. Адаптивность на мое усмотрение. Препроцессор LESS."
     },
     "jokerbros":{
-      "title": "Game Room'",
-      "short": "Educational project from scratch",
-      "description": "Project on DB MySQL randomly choose winner from visitors, who get all bits of participants of the game. DB filters of game rooms, debit of losers and adding of new game rooms."
+      "title": "Игровой шоурум Jokerbros",
+      "short": "Учебный проект с нуля",
+      "description": "Проект с БД случайным образом выбирает игрока-победителя, которому начисляется ставка всех участников игры. БД фильтры игровых столов, списание средств с проигравших и добавление геймрума."
     },
     "weather":{
-      "title": "Weather forecast from Yahoo",
-      "short": "Application on React",
-      "description": "Application 'Yahoo weather forecast' of all cities of the world. Used Yahoo Weather Api and different React plugins. Forecast on a week with graph of temperatures."
+      "title": "Прогноз погоды от Yahoo",
+      "short": "Учебное приложение на React",
+      "description": "Приложение для просмотра прогноза погоды по городам мира. Использовалась Yahoo Weather Api, а также различные плагины React. Отображение прогноза погоды на неделю для каждого города."
     },
     "shoop":{
-      "title": "Online store",
-      "short": "",
-      "description": ""
+      "title": "Онлайн магазин",
+      "short": "Дипломный проект на заказ",
+      "description": "Проект интернет магазина с самописной CMS. Категории, товары, добавление в корзину, изменение кол-ва товаров в корзине, авторизация. Есть админ-панель для управления товарами и категориями."
     },
     "neews":{
-      "title": "News portal",
-      "short": "",
-      "description": ""
+      "title": "Новостной портал",
+      "short": "Учебный проект с нуля",
+      "description": "Новостной портал реализован на PHP и БД MySQL. Разбивка новостей по категориям, дням и журналам. Добавление статей через админку, права пользователя на добавление и публикацию."
     },
     "mmedia":{
-      "title": "Website of video studio",
-      "short": "",
-      "description": ""
+      "title": "Вебсайт видеостудии",
+      "short": "Сайт на шаблоне HTML5/JS",
+      "description": "Адаптация HTML5 шаблона под нужды компании по производству видео рекламы. Внедрение видеофона, изменение скрипта, добавление возможности размещения видео с Youtube."
     },
     "icharger":{
-      "title": "Landing page iCharger",
-      "short": "",
-      "description": ""
+      "title": "Одностраничник iCharger",
+      "short": "Одностраничный сайт за день",
+      "description": "Верстка одностраничного сайта с нуля за день. Требования – минимальный функционал, максимальная скорость. Подключение партнерки и плагина прокрутки."
     },
     "seo20min":{
-      "title": "SEO for 20 minutes",
-      "short": "",
-      "description": ""
+      "title": "SEO за 20 минут",
+      "short": "Страница пиксель в пиксель",
+      "description": "Тренировочный проект. Кроссбраузерная верстка страницы 'пиксель в пиксель' по JPG макету."
     },
-    "cloudsnews":{
-      "title": "SEO for 20 minutes",
-      "short": "",
-      "description": ""
+    "cloudnews":{
+      "title": "Cloudnews",
+      "short": "Страница пиксель в пиксель",
+      "description": "Страница новостного портала по PSD макету с реализацией дизайна пиксель в пиксель. Использование SASS и дополнений к Chrome - 'PerfectPixel' и 'Pix to Pix'"
     },
     "po-sekretu":{
-      "title": "Blog 'Po sekretu'",
-      "short": "",
-      "description": ""
-    },
-    "paladium":{
-      "title": "LP of repairing company",
-      "short": "",
-      "description": ""
-    },
-    "jobshouse":{
-      "title": "Web business card",
-      "short": "",
-      "description": ""
+      "title": "Блог 'По секрету'",
+      "short": "Сайт на Wordpress",
+      "description": "Адаптация Wordpress шаблона под блог заказчика. Наращивание функционала с помощью плагинов, изменение дизайна, добавление возможностей через изменение PHP скриптов. Размещение и поддержка сайта."
     }
   },
   "interests": {

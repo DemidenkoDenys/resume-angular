@@ -15,7 +15,7 @@
 
     <ng-container *ngFor="let item of menuItems; let i = index">
       <li class="main-menu__item-holder" [class.main-menu__item-holder__hide]="!item.show">
-        <ejs-tooltip [content]="item.description" cssClass="tooltip-window" [mouseTrail]='true'>
+        <ejs-tooltip [content]="'menu.' + item.title | translate" cssClass="tooltip-window" [mouseTrail]='true'>
           <a
             class="main-menu__item-link"
             target="_blank"

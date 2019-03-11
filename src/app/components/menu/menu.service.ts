@@ -14,22 +14,22 @@ export class MenuService {
   private _images: Images;
   private _menus: MenuItem[] = [
     {
-      description: "Перейти на аккаунт Djinni",
+      title: "djinni",
       show: true,
       href: "https://djinni.co/q/b6806a4b/"
     },
     {
-      description: "Перейти на репозиторий Git",
+      title: "github",
       show: true,
       href: "https://github.com/demidenkodenys"
     },
     {
-      description: "Перейти на аккаунт LinkedIn",
+      title: "linkedin",
       show: true,
       href: "https://www.linkedin.com/in/demidenko-denys"
     },
     {
-      description: "Показать диплом",
+      title: "diplom",
       show: true,
       prevent: true,
       action: () =>
@@ -40,7 +40,7 @@ export class MenuService {
         })
     },
     {
-      description: "Показать рецензию по диплому",
+      title: "review",
       show: true,
       prevent: true,
       action: () =>
@@ -51,7 +51,7 @@ export class MenuService {
         })
     },
     {
-      description: "Показать оценки",
+      title: "grades",
       show: true,
       prevent: true,
       action: () =>
@@ -62,19 +62,19 @@ export class MenuService {
         })
     },
     {
-      description: "Скачать PDF версию резюме",
+      title: "pdf",
       show: true,
       download: true,
       href: `${window.location.href}/assets/downloads/Demidenko_Denys_CV.pdf`
     },
     {
-      description: "Скачать DOC версию резюме",
+      title: "doc",
       show: true,
       download: true,
       href: `${window.location.href}/assets/downloads/Demidenko_Denys_CV.docx`
     },
     {
-      description: "Распечатать резюме",
+      title: "print",
       show: true,
       prevent: true,
       action: () => {
@@ -82,7 +82,7 @@ export class MenuService {
       }
     },
     {
-      description: "Переключить на русский язык",
+      title: "ru",
       show: true,
       prevent: true,
       action: () => {
@@ -90,7 +90,7 @@ export class MenuService {
       }
     },
     {
-      description: "Переключить на украинский язык",
+      title: "ua",
       show: true,
       prevent: true,
       action: () => {
@@ -98,7 +98,7 @@ export class MenuService {
       }
     },
     {
-      description: "Переключить на английский язык",
+      title: "en",
       show: true,
       prevent: true,
       action: () => {
@@ -106,37 +106,37 @@ export class MenuService {
       }
     },
     {
-      description: "Открыть в iPhone 5",
+      title: "iphone",
       show: false,
       prevent: true,
       action: () => this.changeDeviceView("iphone")
     },
     {
-      description: "Открыть в Samsung Galaxy S7",
+      title: "samsung",
       show: false,
       prevent: true,
       action: () => this.changeDeviceView("samsung")
     },
     {
-      description: "Открыть в iPad Classic",
+      title: "ipad",
       show: false,
       prevent: true,
       action: () => this.changeDeviceView("ipad")
     },
     {
-      description: "Открыть в iPad Pro",
+      title: "ipadpro",
       show: false,
       prevent: true,
       action: () => this.changeDeviceView("ipadpro")
     },
     {
-      description: "Открыть в окне Notebook",
+      title: "laptop",
       show: false,
       prevent: true,
       action: () => this.changeDeviceView("laptop")
     },
     {
-      description: "Открыть в окне Desktop Monitor",
+      title: "desktop",
       show: false,
       prevent: true,
       action: () => this.changeDeviceView("desktop")

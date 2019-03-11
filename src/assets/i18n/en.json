@@ -1,11 +1,31 @@
 {
+  "menu": {
+    "djinni": "Go to account Djinni",
+    "github": "Go to repository Github",
+    "linkedin": "Go to account LinkedIn",
+    "diplom": "Show the diploma",
+    "review": "Show the diploma's review",
+    "grades": "Show university's grade",
+    "pdf": "Download PDF resume",
+    "doc": "Download DOC resume",
+    "print": "Print resume",
+    "ru": "Switch to Russian",
+    "ua": "Switch to Ukrainian",
+    "en": "Switch to English",
+    "iphone": "Open in iPhone 5",
+    "samsung": "Open in Samsung Galaxy S7",
+    "ipad": "Open in iPad Classic",
+    "ipadpro": "Open in iPad Pro",
+    "laptop": "Open in Notebook window",
+    "desktop": "Open in Desktop monitor"
+  },
   "headers": {
     "experience": "Experience",
     "skills": "Skills",
     "qualities": "Personal qualities",
     "goal": "Goal",
     "interests": "Interests",
-    "portfolio": "Examples of works"
+    "portfolio": "Example of works"
   },
   "descriptions": {
     "goal": "Learn node.js, backend and react native to create mobile applications. Also I dream to learn Java and Swift for android and iOS developing. I aspire to become an all known programmer and attain Senior level",
@@ -15,7 +35,7 @@
   "experience": {
     "1984": {
       "title": "Birth year",
-      "description": "I was born in Kharkiv, where live and work now"
+      "description": "I was born, live and work in Kharkiv"
     },
     "2001": {
       "title": "Graduated from lyceum",
@@ -23,46 +43,46 @@
     },
     "2005": {
       "title": "Technician of private local network",
-      "description": "Connection of new users, expansion of network lines, re-equipment, adjustment of equipment"
+      "description": "Connection of new users, expansion of network lines, retooling, adjustment of equipment"
     },
     "2007": {
       "title": "Graduated from University",
-      "description": "graduated from Kharkiv National University of Economy (KNUE) with honours. Diploma's theme - Development of automated module 'Monitoring of payments for provided services in private local network' - excellent (10)"
+      "description": "Graduated from Kharkiv National University of Economy (KNUE) with excellent. Diploma's topic - Development of automated module 'Monitoring of payments for provided services in private local network' - grade 'A' (10)"
     },
     "2008": {
       "title": "Technician-administrator of Airbites",
-      "description": "Adjustment of network's equipments and user's computers, cabling of new and maintenance of existed lines"
+      "description": "Adjustment of network's equipment and user's computers, cabling of new and maintenance of existed network lines"
     },
     "2010": {
       "title": "Copyrighter/SEO optimizer/Content-manager",
-      "description": "Freelancer - writing articles, optimizing of websites for promoting in searching systems, adding of content on websites through admin-panels or straight in html-code"
+      "description": "Freelancer - writing articles, optimizing websites for promoting in searching systems, adding of content on websites through admin-panels or straight in html-code"
     },
     "2015": {
       "title": "HTML/CSS coder",
-      "description": "Freelancer - mark-up of webpages, adapting of CMS templates for customer's requirements, fixing of bugs, designs creating"
+      "description": "Freelancer - webpage markup, adapting of CMS templates for customer's requirements, fixing bugs, designs creating"
     },
     "2016": {
-      "title": "Frontend developer BigDrop",
-      "description": "Freelancer, and after staff member of 2 companies. The responsibilities included – creating interfaces, full part of websites production ranging from creation of concept to hosting the sites on internet, finding domains, adding dynamic through JavaScript and functional through PHP"
+      "title": "Trainy frontend developer",
+      "description": "I was attended on 3 months paid trainy course in Demiart webstudio. During this time I produced 4 SPA websites, which were successfuly launched"
     },
     "2017": {
-      "title": "Frontend developer DigitalSuits",
-      "description": "Now I am working in DigitalSuits company as React and Angular developer"
+      "title": "Frontend developer BigDrop",
+      "description": "Worked at BigDrop company for one year. I was responsible to frontend of multipage websites and online shops by custom design for integration with Wordpress"
     },
     "2018": {
-      "title": "2018 experience",
-      "description": "2018 experience"
+      "title": "Angular/React developer DigitalSuits",
+      "description": "React and Angular applications development, which were integrated with custom API. Support and modernization of existence API"
     },
     "2019": {
       "title": "Currently",
-      "description": "Now I am applicant on React Frontend Developer post in big company in Kharkiv. I am interested in team projects, which I will be proud of, unlike of just having payment for this. Also I want to improve my technical skills working in team's projects."
+      "description": "Now I am looking for perspective company to fulfil my potential as Angular full-stack developer..."
     }
   },
   "skills": {
-    "main-stack": "Main stack of technology:",
+    "main-stack": "Main technology stack:",
     "commercial": "Commercial experience in:",
     "familiar": "Familiar with:",
-    "desire": "Desired to learn:",
+    "desire": "Desire to learn:",
     "filters": {
       "show": "By default",
       "level": "Proficiency",
@@ -76,19 +96,19 @@
       "description": "Interactive handbook of HTML tags on React/Redux technology. Filters, search, moveable mtitleu with tag pointer. Project was developing during 5 days on the bundler create-react-app."
     },
     "magnat-lzr":{
-      "title": "Headphones Magnat LZR",
-      "short": "",
-      "description": ""
+      "title": "Magnat headphones shop",
+      "short": "Landing page from scratch",
+      "description": "Custom HTML5 Video player on home page, responsive markup with support of mobile devices. Modular JS script."
     },
     "pizza":{
       "title": "Application 'Pizzeria'",
-      "short": "Landing page on Angular 2 ES6",
-      "description": "Educational project on Angular2 (angular-cli). On the website implemented online store of pizzas, compiling from ingredients and adding to basket. All data saving in localStorage."
+      "short": "Landing page on Angular 2",
+      "description": "Educational project on Angular 2 (angular-cli). On the website implemented online store of pizzas, compiling from ingredients and adding to basket. All data saving in localStorage."
     },
     "resume":{
       "title": "Interactive Resume",
-      "short": "Application on React",
-      "description": "Application on Angular with language changing feature, viewing work from portfolio on different resolutions. Work created on Webpack bundler, responsive design."
+      "short": "Application on Angular",
+      "description": "Application on Angular with internazionalization, viewing work from portfolio on different devices. Work created on Webpack bundler, data fetched from Firebase database, responsive design."
     },
     "value":{
       "title": "Value Garden Supply'",
@@ -96,12 +116,12 @@
       "description": "Crossbrowser markup of webpage by JPG layout. Responsive on my own opinion."
     },
     "naturetour":{
-      "title": "Nature Tour'",
+      "title": "Nature Tour Page",
       "short": "Pixel Perfect Page",
-      "description": "Crossbrowser markup of webpage by PSD layout with implementation of slider on JavaScript. Responsive on my own opinion. Preprocessor LESS used."
+      "description": "Crossbrowser markup of webpage by PSD layout with implementation of slider on JavaScript. Responsive on my own opinion. Preprocessor LESS has used."
     },
     "jokerbros":{
-      "title": "Game Room'",
+      "title": "Game Room Jokerbros",
       "short": "Educational project from scratch",
       "description": "Project on DB MySQL randomly choose winner from visitors, who get all bits of participants of the game. DB filters of game rooms, debit of losers and adding of new game rooms."
     },
@@ -112,52 +132,93 @@
     },
     "shoop":{
       "title": "Online store",
-      "short": "",
-      "description": ""
+      "short": "Ordered graduation project",
+      "description": "Project of online store on the custom CMS with admin-panel. Categories, goods, adding to basket, managment of goods in basket, authorization."
     },
     "neews":{
       "title": "News portal",
-      "short": "",
-      "description": ""
+      "short": "Educational project from scratch",
+      "description": "News portal implemented on PHP and DB MySQL. Devision of news on category, dates and magazines. Adding of articles through admin-panel, Users rights to adding and publication of news."
     },
     "mmedia":{
       "title": "Website of video studio",
-      "short": "",
-      "description": ""
+      "short": "Website of HTML5/JS template",
+      "description": "Adapting of HTML5 template to the needs of company which creates video advertising. Introduction of videophone, changing of scripts, adding feature of sharing Youtube video."
     },
     "icharger":{
       "title": "Landing page iCharger",
-      "short": "",
-      "description": ""
+      "short": "Landing page for one day",
+      "description": "Markup of SPA for one day. Requirements – minimal functions, maximum speed. Embeding a parter script and using a scrolling script."
     },
     "seo20min":{
       "title": "SEO for 20 minutes",
-      "short": "",
-      "description": ""
+      "short": "Pixel Perfect Page",
+      "description": "Trainy project. Crossbrowser markup of webpage by JPG layout."
     },
-    "cloudsnews":{
-      "title": "SEO for 20 minutes",
-      "short": "",
-      "description": ""
+    "cloudnews":{
+      "title": "Cloudnews page",
+      "short": "Pixel Perfect Page",
+      "description": "News hub webpage by PSD layout with pix to pix markup. Preprocessor SASS and Chrome extensions 'PerfectPixel' and 'Pix to Pix' are used"
     },
     "po-sekretu":{
       "title": "Blog 'Po sekretu'",
-      "short": "",
-      "description": ""
+      "short": "Wordpress website",
+      "description": "Adapting of Wordpress template to blog of orderer. Enhancement of functionality through plugins, changing of design, adding features through PHP scripts. Hosting and support of website."
+    }
+  },
+  "interests": {
+    "code": "Currently my main hobby - it's coding",
+    "book": "At free time I can read several books of well-known authors",
+    "music": "Music - it's essential companion. In my MP3 player always has needed track",
+    "games": "Such games as UNO, Alias, Monopoly, Mafia - it's a good reason to meet with my friends and have a good time with them",
+    "bike": "Bicycle it's a reason to get active leisure, especially in a company of my friends during a long trip",
+    "snowboard": "Snowboard – it's my major extreme hobby. It's a pity that the winter is not last all year",
+    "windsurf": "Windsurf – it's a youth's hobby, and a kind of sport, where I've had succeed",
+    "kite": "Kite – it's a freedom on sea's spaces. During sea trip I definitely go into the sea with kite equipment",
+    "tennis": "Tennis – it's a hobby of my youth, which have growned in something more. Before study in university I had category if Candidate Master of Sports, but now i'm just amateur",
+    "smoke": "I don't smoke, what help me feel myself good too",
+    "alcohol": "I don't drink alcohol",
+    "drug": "I don't do any drugs",
+    "cgames": "I try to save my free time to more usefull things instead of computer game",
+    "angry": "I'm not tended to dissatisfaction, grouchiness and angry"
+  },
+  "qualities": {
+    "fast-start": {
+      "title": "Быстрый старт",
+      "description": "Вникаю в проект в течение 1-2 дней, умею быстро настроить свое окружение для начала работы, также могу освоить новую технологию довольно быстро"
     },
-    "paladium":{
-      "title": "LP of repairing company",
-      "short": "",
-      "description": ""
+    "team-player": {
+      "title": "Командный игрок",
+      "description": "Неоднократно встречал полное взаимопонимание со стороны участников проекта, с которыми мне приходилось работать. Никогда не конфликтую с коллегами, а наоборот стараюсь поддержать позитивную атмосферу"
     },
-    "jobshouse":{
-      "title": "Web business card",
-      "short": "",
-      "description": ""
+    "clear-code": {
+      "title": "Чистый код",
+      "description": "В результате рефакторинга большого количества кода понял, что код нужно писать чистым и понятным для других разработчиков - поэтому в моей работе стараюсь придерживаться этого правила и совершенствоваться в этом направлении"
+    },
+    "diligent": {
+      "title": "Добросовестность",
+      "description": "Честность и добросовестность - это качества, которым придерживаюсь в любой ситуации."
+    },
+    "energetic": {
+      "title": "Энергичность",
+      "description": "Все мои коллеги на прошлых местах работы были рады работать со мной в одном проекте благодаря моей энергичности и позитиву. Это качество также позволяет мне быстро справляться со своей работой"
+    },
+    "communicate": {
+      "title": "Коммуникабельность",
+      "description": "Умение общаться с людьми - это один жизненно важный навык для программиста, поэтому я не упускаю возможности пообщаться с коллегами, как по работе, так и вне её"
+    },
+    "quick-learn": {
+      "title": "Быстрая обучаемость",
+      "description": "Быстро осваиваю новую информацию и умею в кратчайшие сроки начать пользоваться незнакомым плагином или технологией"
+    },
+    "productivity": {
+      "title": "Продуктивность",
+      "description": "На прошлых работах меня ценили за быстровыполненную работу"
     }
   },
   "service": {
     "back-to-portfolio": "Back to portfolio list",
-    "filter-tip": "Show works where used "
+    "filter-tip": "Show works which used ",
+    "go-to-work-site": "Go to website "
   }
 }
