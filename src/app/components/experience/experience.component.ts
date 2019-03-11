@@ -17,4 +17,6 @@ export class ExperienceComponent{
   constructor(private _fetch: FetchService) {
     this.experiences = this._fetch.getExperience();
   }
+
+
 }

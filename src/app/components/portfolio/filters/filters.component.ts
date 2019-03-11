@@ -16,14 +16,19 @@ export class FiltersComponent {
   filters$: Observable<any>;
   filters: FiltersInterface = {};
   filtersKeys: string[] = [];
+  filterObserver: any;
 
   constructor(private _fetch: FetchService) {
     this.initFilters();
   }
 
+  ngOnDestroy() {
+    this.filterObserver.unsubscribe();
+  }
+
   initFilters(): void{
     this.filters$ = this._fetch.getFilters();
-    this.filters$.subscribe((snapshot: FiltersInterface) => {
+    this.filterObserver = this.filters$.subscribe((snapshot: FiltersInterface) => {
       if (Object.keys(this.filters).length === 0) {
         this.setFilters(snapshot);
         this.resetFilters();

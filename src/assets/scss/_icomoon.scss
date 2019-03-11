@@ -1,4 +1,6 @@
-[class^="icon-"], [class*=" icon-"] {
+[class*=" icon-"],
+[class^="icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
   font-family: 'icomoon' !important;
   speak: none;
   font-style: normal;
@@ -6,100 +8,136 @@
   font-variant: normal;
   text-transform: none;
   line-height: 1;
+
+  /* Better Font Rendering =========== */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-external-link:before {
+  content: "\e91a";
 }
 
 .icon-angular:before {
   content: "\e900";
 }
+
 .icon-avocode:before {
   content: "\e901";
 }
+
 .icon-bootstrap:before {
   content: "\e902";
 }
+
 .icon-css3:before {
   content: "\e903";
 }
+
 .icon-firebase:before {
   content: "\e904";
 }
+
 .icon-git:before {
   content: "\e905";
 }
+
 .icon-gulp:before {
   content: "\e906";
 }
+
 .icon-html5:before {
   content: "\e907";
 }
+
 .icon-ie:before {
   content: "\e908";
 }
+
 .icon-illustrator:before {
   content: "\e909";
 }
+
 .icon-java:before {
   content: "\e90a";
 }
+
 .icon-joomla:before {
   content: "\e90b";
 }
+
 .icon-jquery:before {
   content: "\e90c";
 }
+
 .icon-js:before {
   content: "\e90d";
 }
+
 .icon-linux:before {
   content: "\e90e";
 }
+
 .icon-lodash:before {
   content: "\e90f";
 }
+
 .icon-mysql:before {
   content: "\e910";
 }
+
 .icon-nodejs:before {
   content: "\e911";
 }
+
 .icon-opencart:before {
   content: "\e912";
 }
+
 .icon-photoshop:before {
   content: "\e913";
 }
+
 .icon-php:before {
   content: "\e914";
 }
+
 .icon-postgresql:before {
   content: "\e915";
 }
+
 .icon-react:before {
   content: "\e916";
 }
+
 .icon-sass:before {
   content: "\e917";
 }
+
 .icon-webpack:before {
   content: "\e918";
 }
+
 .icon-wordpress:before {
   content: "\e919";
 }
+
 .icon-arrow-back-outline:before {
   content: "\e921";
 }
+
 .icon-phone:before {
   content: "\e942";
 }
+
 .icon-earth:before {
   content: "\e9ca";
 }
+
 .icon-heart:before {
   content: "\e9da";
 }
+
 .icon-mail2:before {
   content: "\ea84";
 }

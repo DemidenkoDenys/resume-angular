@@ -1,4 +1,5 @@
 import { Directive, OnInit, Input, ElementRef, HostListener, Renderer2 } from '@angular/core';
+import { fromEvent } from "rxjs";
 
 @Directive({
   selector: '[scale-iframe]'
@@ -10,19 +11,21 @@ export class ScaleIframeDirective implements OnInit {
   @Input() height: number;
 
   private _iframeHTMLElement: HTMLHyperlinkElementUtils;
-  private iframeWrapper: HTMLElement;
+  private _iframeWrapper: HTMLElement;
+  private _resize: any;
 
   constructor(
     private iframe: ElementRef,
     private renderer: Renderer2
   ) {
     this._iframeHTMLElement = iframe.nativeElement;
-    this.iframeWrapper = iframe.nativeElement.parentElement;
+    this._iframeWrapper = iframe.nativeElement.parentElement;
   }
 
   ngOnInit() {
     this.scaleIframe();
     this.resizeIframe();
+    this._resize = fromEvent(window, "resize").subscribe(() => this.scaleIframe());
   }
 
   ngOnChanges() {
@@ -30,9 +33,8 @@ export class ScaleIframeDirective implements OnInit {
     this.resizeIframe();
   }
 
-  @HostListener('window:resize', [])
-  onResize(){
-    this.scaleIframe();
+  ngOnDestroy() {
+    this._resize.unsubscribe();
   }
 
   resizeIframe() {
@@ -41,7 +43,7 @@ export class ScaleIframeDirective implements OnInit {
   }
 
   scaleIframe() {
-    this.renderer.setStyle(this._iframeHTMLElement, 'transform', `scale(${ this.iframeWrapper.offsetWidth * this.scale / this.width })`);
+    this.renderer.setStyle(this._iframeHTMLElement, 'transform', `scale(${ this._iframeWrapper.offsetWidth * this.scale / this.width })`);
   }
 
 }

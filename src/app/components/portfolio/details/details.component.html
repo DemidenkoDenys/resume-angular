@@ -1,6 +1,9 @@
 <section class='portfolio-work__opened'>
 
-  <app-section-title [title]="'portfolio.' + workName + '.title' | translate" backLink></app-section-title>
+  <app-section-title
+    backLink
+    [externalLink]="workUrl"
+    [title]="'portfolio.' + workName + '.title' | translate"></app-section-title>
 
   <div class='portfolio-work__description' in-viewport>
     <img class="portfolio-work__image print-version" [src]="deviceImageSource" [alt]="" />
@@ -11,18 +14,17 @@
   <div [ngClass]="'work-in-frame__device-wrapper work-in-frame__device-wrapper_' + currentMode.name">
     <img class="work-in-frame__device-cover" [src]="deviceImageSource" alt="device frame" />
 
-    <!-- TODO set real ur -->
-    <iframe src="https://demidenko-denys.pp.ua"
-            scale-iframe
+    <iframe [src]="workUrl"
+            (load)="onIframeLoaded()"
             class="work-in-frame"
             [class.work-in-frame_waiting]="!deviceImageSource || !iframeLoaded"
-            (load)="onIframeLoaded()"
+            [ngClass]="'work-in-frame_' + currentMode.name"
+            scale-iframe
+            in-viewport
+            (inViewport)="iframeInViewport($event)"
             [scale]="currentMode.scale"
             [width]="currentMode.width"
-            [height]="currentMode.height"
-            [ngClass]="'work-in-frame_' + currentMode.name"
-            in-viewport
-            (inViewport)="iframeInViewport($event)"></iframe>
+            [height]="currentMode.height"></iframe>
 
     <div class='work-in-frame__loading-icon'></div>
 

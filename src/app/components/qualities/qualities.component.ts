@@ -11,9 +11,14 @@ import { FetchService } from '../../services/fetch.service';
 export class QualitiesComponent {
 
   qualities: Quality[];
+  qualitiesObserver: any;
 
   constructor(private _fetch: FetchService) {
-    this._fetch.getQualities().subscribe((snapshot: Quality[]) => this.qualities = snapshot);
+    this.qualitiesObserver = this._fetch.getQualities().subscribe((snapshot: Quality[]) => this.qualities = snapshot);
+  }
+
+  ngOnDestroy() {
+    this.qualitiesObserver.unsubscribe();
   }
 
 }

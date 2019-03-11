@@ -35,7 +35,18 @@ $color-second: #0cc;
   }
   
   &_link-back{
-    vertical-align: text-bottom;
+    vertical-align: text-top;
+    color: $color-first;
+    margin-right: 10px;
+  }
+
+  &_link-external{
+    vertical-align: text-top;
     color: $color-second;
+    margin-left: 10px;
+
+    &:before{
+      font-size: 22px;
+    }
   }
 }

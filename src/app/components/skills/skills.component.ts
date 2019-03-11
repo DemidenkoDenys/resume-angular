@@ -17,15 +17,20 @@ export class SkillsComponent {
     level: 0,
     title: 0,
   };
+  skillsObserver: any;
+  skillsPriorityObserver: any;
 
   constructor(private _fetch: FetchService) {
-    this._fetch.getSkillsPriority().subscribe((snapshot: string[]) => {
-      this.initSkillPriorities(snapshot);
-    });
-    this._fetch.getSkills().subscribe((snapshot: FetchedSkills) => {
+    this.skillsPriorityObserver = this._fetch.getSkillsPriority().subscribe((snapshot: string[]) => this.initSkillPriorities(snapshot));
+    this.skillsObserver = this._fetch.getSkills().subscribe((snapshot: FetchedSkills) => {
       this.initSkills(snapshot);
       this.sortSkills();
     });
+  }
+
+  ngOnDestroy() {
+    this.skillsObserver.unsubscribe();
+    this.skillsPriorityObserver.unsubscribe();
   }
 
   initSkillPriorities(skillPriorities: string[]): void {

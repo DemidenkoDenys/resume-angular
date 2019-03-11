@@ -10,6 +10,8 @@ interface Work {
   title: string,
   show: number,
   image: URL,
+  url?: string,
+  mode?: string,
   techs: Technology[]
 }
 

@@ -5,6 +5,8 @@ import { ResponsiveService } from "../../services/responsive.service";
 import { MenuService } from "./menu.service";
 import { DOCUMENT } from "@angular/platform-browser";
 import { WINDOW } from "../../services/window.service";
+import { fromEvent } from "rxjs";
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: "app-menu",
@@ -19,11 +21,11 @@ export class MenuComponent {
   images: Images;
   menuItems: MenuItem[] = [];
   styleHtmlPreventScroll: HTMLStyleElement;
-
-  modal: Modal = {
-    open: false,
-    url: ""
-  };
+  modal: Modal = { open: false, url: "" };
+  screenStatusObserver: any;
+  modalOpenObserver: any;
+  deviceMenusObserver: any;
+  scrollObserver: any;
 
   constructor(
     private _menuService: MenuService,
@@ -37,17 +39,23 @@ export class MenuComponent {
   }
 
   ngOnInit() {
-    this._responsiveService.getScreenStatus().subscribe(() => this.setScreen());
     this.onResize();
-    this._menuService.onModalOpen.subscribe(({ open, url, type }) => {
-      this.openModal(open, url, type);
-    });
-    this._menuService.onDeviceMenusOpen.subscribe((open: boolean) => {
+    this.scrollObserver = fromEvent(window, 'scroll').pipe(map(() => window.pageYOffset)).subscribe((pageYOffset: number) => this.fixMenu(pageYOffset));
+    this.screenStatusObserver = this._responsiveService.getScreenStatus().subscribe(() => this.setScreen());
+    this.modalOpenObserver = this._menuService.onModalOpen.subscribe(({ open, url, type }) => this.openModal(open, url, type));
+    this.deviceMenusObserver = this._menuService.onDeviceMenusOpen.subscribe((open: boolean) => {
       const count = this.menuItems.length;
       for (let i = count - 1; i > count - 7; i--) {
         this.menuItems[i].show = open;
       }
     });
+  }
+
+  ngOnDestroy() {
+    this.scrollObserver.unsubscribe();
+    this.modalOpenObserver.unsubscribe();
+    this.deviceMenusObserver.unsubscribe();
+    this.screenStatusObserver.unsubscribe();
   }
 
   setScreen(): void {
@@ -86,17 +94,13 @@ export class MenuComponent {
     return style;
   }
 
-  @HostListener("window:scroll", [])
-  onWindowScroll() {
-    let scrollTop = this._window.pageYOffset || this._document.documentElement.scrollTop || this._document.body.scrollTop || 0;
-    if (scrollTop > 300) {
-      if (!this.fixed) {
-        this.fixed = true;
-      }
-    } else {
-      if (this.fixed) {
-        this.fixed = false;
-      }
+  fixMenu(scrollTop: number): void {
+    if (scrollTop <= 300 && this.fixed) {
+      this.fixed = false;
+    }
+    if (scrollTop > 300 && !this.fixed) {
+      this.fixed = true;
     }
   }
+
 }

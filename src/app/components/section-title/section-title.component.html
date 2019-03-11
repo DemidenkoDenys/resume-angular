@@ -1,12 +1,23 @@
 <h2 class="section__header" in-viewport>
 
+  <ejs-tooltip
+    *ngIf="back"
+    [content]="'service.back-to-portfolio' | translate"
+    [mouseTrail]='true'
+    cssClass="tooltip-window"
+  >
+    <a (click)="backClicked(); $event.preventDefault();" class="section__header_link-back icon-arrow-back-outline" href="#"></a>
+  </ejs-tooltip>
+
   <span>#{{ title }}</span>
 
-  <ejs-tooltip [content]="'service.back-to-portfolio' | translate" cssClass="tooltip-window" [mouseTrail]='true'>
-    <a *ngIf="back"
-      (click)="backClicked(); $event.preventDefault();"
-      class="section__header_link-back icon-arrow-back-outline"
-      href="#"></a>
+  <ejs-tooltip
+    *ngIf="externalLink" 
+    [content]="'service.go-to-work-site' | translate"
+    [mouseTrail]='true'
+    cssClass="tooltip-window"
+  >
+    <a [href]="externalLink" target="_blank" class="section__header_link-external icon-external-link"></a>
   </ejs-tooltip>
 
 </h2>

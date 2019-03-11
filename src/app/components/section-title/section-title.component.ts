@@ -11,6 +11,7 @@ export class SectionTitleComponent implements OnInit{
   back: boolean;
 
   @Input() title: string;
+  @Input() externalLink: string;
   @Input() set backLink(value: any) { this.back = (value != null && `${value}` !== 'false'); }
 
   constructor(private _location: Location) {}
@@ -20,5 +21,4 @@ export class SectionTitleComponent implements OnInit{
   backClicked() {
     this._location.back();
   }
-
 }

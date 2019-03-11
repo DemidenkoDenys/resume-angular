@@ -1,9 +1,10 @@
 /// <reference path="../portfolio.d.ts" />
 
 import { Component, EventEmitter, OnDestroy } from "@angular/core";
-import { Router } from "@angular/router";
+import { Router, ActivatedRoute } from "@angular/router";
 import { PortfolioService } from "../portfolio.service";
 import { MenuService } from "../../menu/menu.service";
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 
 @Component({
   selector: "app-details",
@@ -12,40 +13,56 @@ import { MenuService } from "../../menu/menu.service";
 })
 export class DetailsComponent implements OnDestroy {
 
-  //TODO unsubscribe all listeners
   workName: string;
+  workUrl: SafeResourceUrl;
   modes: Modes;
   currentMode: Mode;
   iframeLoaded: boolean = false;
   deviceImageSource: string = '';
   modeChangeWatcher = new EventEmitter<string>();
+  modeSubscriber: any;
+  routeDataSubscriber: any;
+  deviceViewSubscriber: any;
 
   constructor(
     private _portfolioServise: PortfolioService,
     private _menuService: MenuService,
-    private _router: Router
+    private _router: Router,
+    private _route: ActivatedRoute,
+    private _sanitizer: DomSanitizer
   ) {
     this.workName = this._router.url.replace('/', '');
     this.modes = this._portfolioServise.getViewModes();
-    this.currentMode = this._portfolioServise.gerDefaultMode();
+    this.currentMode = this._portfolioServise.getDefaultMode();
     this.loadImageAsync(this.getFrameSrc(this.currentMode.name));
 
-    this._menuService.onDeviceViewChanged.subscribe((modeName: string) => {
-      if (this.modes.hasOwnProperty(modeName)) {
-        this.currentMode = this.modes[modeName];
+    this.routeDataSubscriber = this._route.data.subscribe((data: any) => {
+      this.workUrl = this._sanitizer.bypassSecurityTrustResourceUrl(data.url);
+      if (data.hasOwnProperty('mode') && this.modes.hasOwnProperty(data.mode)) {
+        this.currentMode = this.modes[data.mode];
         this.loadImageAsync(this.getFrameSrc(this.currentMode.name));
       }
     });
 
-    this.modeChangeWatcher.subscribe((src: string) => this.deviceImageSource = src);
+    this.deviceViewSubscriber = this._menuService.onDeviceViewChanged.subscribe((modeName: string) => {
+      if (this.modes.hasOwnProperty(modeName)) {
+        this.currentMode = this.modes[modeName];
+      }
+    });
+
+    this.modeSubscriber = this.modeChangeWatcher.subscribe((src: string) => this.deviceImageSource = src);
   }
 
   onChanges() {
     this.iframeLoaded = false;
+    this.deviceImageSource = '';
   }
 
   ngOnDestroy() {
     this._menuService.openDeviceMenus(false);
+    this.modeSubscriber.unsubscribe();
+    this.routeDataSubscriber.unsubscribe();
+    this.deviceViewSubscriber.unsubscribe();
   }
 
   onIframeLoaded(): void {
@@ -70,7 +87,7 @@ export class DetailsComponent implements OnDestroy {
     this._router.navigate([""]);
   }
 
-  iframeInViewport(e) {
+  iframeInViewport(e: any): void {
     this._menuService.openDeviceMenus(e.value);
   }
 

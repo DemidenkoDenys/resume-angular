@@ -2,7 +2,6 @@
 
 import { Component, Input, SimpleChanges } from '@angular/core';
 import { Router } from '@angular/router';
-
 import { FetchService } from '../../../services/fetch.service';
 import { DetailsComponent } from '../details/details.component';
 
@@ -19,11 +18,13 @@ export class PortfolioListComponent {
   private _initPortfolio: Work[] = [];
   public portfolio: Work[] = [];
 
+  private _getPortfolioObserver: any;
+
   constructor(
     private _fetch: FetchService,
     private _router: Router
   ) {
-    this._fetch.getPortfolio().subscribe((snapshot: Work[]) => this.initPortfolio(snapshot));
+    this._getPortfolioObserver = this._fetch.getPortfolio().subscribe((snapshot: Work[]) => this.initPortfolio(snapshot));
   }
 
   ngOnChanges(changes: SimpleChanges) {
@@ -32,6 +33,10 @@ export class PortfolioListComponent {
       this._filters = Object.keys(newFilters).filter((key: string) => newFilters[key] === true);
       this.executefilters();
     }
+  }
+
+  ngOnDestroy() {
+    this._getPortfolioObserver.unsubscribe();
   }
 
   initPortfolio(portfolioList: Array<Work>): void {
@@ -46,9 +51,27 @@ export class PortfolioListComponent {
     if (this._initPortfolio.length > 0) {
       this._initPortfolio.map(work => {
         if (work.hasOwnProperty('title') && work.title) {
-          this._router.config.unshift({ path: work.title, component: DetailsComponent });
+          const data: any = { url: this.getFullWorkUrl(work.url || work.title) };
+          if (work.hasOwnProperty('mode')) { data.mode = work.mode; }
+          this._router.config.unshift({
+            path: work.title,
+            component: DetailsComponent,
+            data
+          });
         }
       });
+    }
+  }
+
+  getFullWorkUrl(urlPart: string): string {
+    if (urlPart.indexOf('https://') + 1 || urlPart.indexOf('http://') + 1) {
+      return urlPart;
+    } else {
+      if (urlPart.indexOf('.') + 1) {
+        return `https://${urlPart}`;
+      } else {
+        return `https://${urlPart}.demidenko-denys.pp.ua`;
+      }
     }
   }
 
