@@ -1,4 +1,4 @@
-<ol class="portfolio-list" [class.loading]="!_initPortfolio?.length">
+<ol class="portfolio-list" [class.loading]="!portfolio?.length">
 
   <ng-container *ngFor="let work of portfolio">
     <li class="portfolio-item" *ngIf="work && work.show" in-viewport>

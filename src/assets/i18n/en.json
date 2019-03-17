@@ -29,7 +29,7 @@
     "portfolio": "Example of works"
   },
   "descriptions": {
-    "goal": "Learn node.js, backend and react native to create mobile applications. Also I dream to learn Java and Swift for android and iOS developing. I aspire to become an all known programmer and attain Senior level",
+    "goal": "I'm excited to be one of a the key developer of a international and perspective company, where I wiil be able to actualize my ambitions. I would like to get backend and mobile development specialization in perspective and take part of developing of projects with complex logic and using of artifitial intelligence.",
     "interests": "In my live a lot of hobbies, which help me to keep myself from going crazy, have a good time and improve myself...",
     "portfolio": ""
   },
@@ -185,36 +185,36 @@
   },
   "qualities": {
     "fast-start": {
-      "title": "Быстрый старт",
-      "description": "Вникаю в проект в течение 1-2 дней, умею быстро настроить свое окружение для начала работы, также могу освоить новую технологию довольно быстро"
+      "title": "Quick start",
+      "description": "Delve into any project for 1-2 days. I'm good in setting up of development environment and sorting out of another's code to fast work starting"
     },
     "team-player": {
-      "title": "Командный игрок",
-      "description": "Неоднократно встречал полное взаимопонимание со стороны участников проекта, с которыми мне приходилось работать. Никогда не конфликтую с коллегами, а наоборот стараюсь поддержать позитивную атмосферу"
+      "title": "Team player",
+      "description": "I've met mutual understanding between colleagues by project and me for many times. Try never conflict with my colleagues, instead of that, try to maintain positive atmosphere"
     },
     "clear-code": {
-      "title": "Чистый код",
-      "description": "В результате рефакторинга большого количества кода понял, что код нужно писать чистым и понятным для других разработчиков - поэтому в моей работе стараюсь придерживаться этого правила и совершенствоваться в этом направлении"
+      "title": "Neat",
+      "description": "After refactoring a bulk of code, I figured out, why code must by clear and clarified for new part of team. By this reason I always try stick to write clear and understandable code"
     },
     "diligent": {
-      "title": "Добросовестность",
-      "description": "Честность и добросовестность - это качества, которым придерживаюсь в любой ситуации."
+      "title": "With Honesty",
+      "description": "Honesty and integrity - it's the rules which always sticked by me"
     },
     "energetic": {
-      "title": "Энергичность",
-      "description": "Все мои коллеги на прошлых местах работы были рады работать со мной в одном проекте благодаря моей энергичности и позитиву. Это качество также позволяет мне быстро справляться со своей работой"
+      "title": "Energetic",
+      "description": "All my colleagues from past jobs were enjoyed to work with me within common project due to energy and positive of mine. This qualities also help me cope with my work"
     },
     "communicate": {
-      "title": "Коммуникабельность",
-      "description": "Умение общаться с людьми - это один жизненно важный навык для программиста, поэтому я не упускаю возможности пообщаться с коллегами, как по работе, так и вне её"
+      "title": "Happy to talk",
+      "description": "Ability to communicate it's a crucial skill for programmer. By this reason I don't miss chance to talk to my colleagues both during working day and out of that"
     },
     "quick-learn": {
-      "title": "Быстрая обучаемость",
-      "description": "Быстро осваиваю новую информацию и умею в кратчайшие сроки начать пользоваться незнакомым плагином или технологией"
+      "title": "Quick learning",
+      "description": "Quick learn new information and know how shortly begin to use unknown plugins and technologies"
     },
     "productivity": {
-      "title": "Продуктивность",
-      "description": "На прошлых работах меня ценили за быстровыполненную работу"
+      "title": "Sprinter",
+      "description": "Try ещ finish my work quickly and only after go to rest. I always ready to run through the tasks to release my weekend"
     }
   },
   "service": {
