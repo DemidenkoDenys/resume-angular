@@ -22,14 +22,14 @@
     position: relative;
     padding: 5px 10px 10px;
   
-    $s-min: 20;
-    $s-max: 70;
+    $s-min: 10;
+    $s-max: 60;
     $l-min: 30;
     $l-max: 90;
   
     @for $i from 1 through 11 {
       &:nth-child(#{$i}){
-        color: hsl(random(360),$s-min+random($s-max+-$s-min),$l-min+random($l-max+-$l-min));
+        color: hsl(random(360), $s-min + random($s-max+-$s-min), $l-min + random($l-max+-$l-min));
       }
     }
   
@@ -98,6 +98,10 @@
       margin-bottom: 5px;
       font: bold normal 1.2rem/1.2rem 'robotob';
       text-indent: 20px;
+
+      strong{
+        word-break: break-word;
+      }
     
       @media screen and (max-width: 480px){
         text-indent: 0;

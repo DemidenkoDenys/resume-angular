@@ -2,7 +2,7 @@
 
   <app-section-title [title]="'headers.skills' | translate"></app-section-title>
 
-  <p class="skills-filters">
+  <p class="skills-filters" [class.loading]="!skillsGroups?.length">
     <ng-container *ngFor="let filter of filters | keyvalue">
       <a href="#"
         class="skills-filters__item"

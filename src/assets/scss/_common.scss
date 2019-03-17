@@ -64,3 +64,15 @@ ul, ol{
 	transition: .5s .5s opacity;
 	opacity: 1;
 }
+
+.loading{
+  padding: 0 0 0 10px !important;
+  &:after{
+    content: '';
+    display: block;
+    height: 50px;
+    width: 100%;
+    background: url(./assets/img/loading.gif) no-repeat center center;
+    background-size: contain;
+  }
+}

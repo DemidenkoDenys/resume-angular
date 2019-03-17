@@ -7,7 +7,10 @@
 
   <div class='portfolio-work__description' in-viewport>
     <img class="portfolio-work__image print-version" [src]="deviceImageSource" [alt]="" />
-    <p class='portfolio-work__full-description'>{{ 'portfolio.' + workName + '.description' | translate }}</p>
+    <p class='portfolio-work__full-description'>
+      {{ 'portfolio.' + workName + '.description' | translate }}
+      <a *ngIf="workLayout" [href]="workLayout" target="_blank">{{ 'service.layout' | translate }}</a>
+    </p>
     <p class="portfolio-work print-version">{{ 'portfolio.' + workName + '.description' | translate }}</p>
   </div>
 

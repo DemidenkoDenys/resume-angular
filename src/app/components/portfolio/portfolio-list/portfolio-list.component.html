@@ -1,4 +1,4 @@
-<ol class="portfolio-list">
+<ol class="portfolio-list" [class.loading]="!_initPortfolio?.length">
 
   <ng-container *ngFor="let work of portfolio">
     <li class="portfolio-item" *ngIf="work && work.show" in-viewport>
@@ -21,7 +21,7 @@
 
           </article>
 
-          <p class="portfolio-item__print-link"></p>
+          <p class="portfolio-item__print-link">{{ getFullWorkUrl(work.url || work.title) }}</p>
         </a>
       </div>
 

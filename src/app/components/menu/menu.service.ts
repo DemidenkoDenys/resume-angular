@@ -4,6 +4,7 @@ import { Injectable, Output, EventEmitter, Inject } from "@angular/core";
 import { TranslateService } from "@ngx-translate/core";
 import { FetchService } from "../../services/fetch.service";
 import { DOCUMENT } from "@angular/platform-browser";
+import { Title } from "@angular/platform-browser";
 
 @Injectable()
 export class MenuService {
@@ -142,15 +143,22 @@ export class MenuService {
       action: () => this.changeDeviceView("desktop")
     }
   ];
+  private _fetchImagesSubscriber: any;
+  private _languageChangeSubscriber: any;
 
   constructor(
     private _translate: TranslateService,
     private _fetchService: FetchService,
+    private _title: Title,
     @Inject(DOCUMENT) private _document: any
   ) {
-    this._fetchService
-      .getImages()
-      .subscribe((snapshot: Images) => (this._images = snapshot));
+    this._fetchImagesSubscriber = this._fetchService.getImages().subscribe((snapshot: Images) => (this._images = snapshot));
+    this._languageChangeSubscriber = this._translate.onLangChange.subscribe(lang => this._title.setTitle(lang.translations.name));
+  }
+
+  ngOnDestroy() {
+    this._fetchImagesSubscriber.unsubscribe();
+    this._languageChangeSubscriber.unsubscribe();
   }
 
   changeLanguage(language: string): void {

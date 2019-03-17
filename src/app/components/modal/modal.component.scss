@@ -14,6 +14,7 @@
   visibility: hidden;
   pointer-events: none;
   transition: 1;
+  cursor: pointer;
 
   &.opened{
     opacity: 1;
@@ -28,6 +29,7 @@
 
   &-content{
     width: 100%;
+    cursor: pointer;
 
     .vertical-scroll &{
       display: inline-block;

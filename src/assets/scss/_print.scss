@@ -1,0 +1,319 @@
+@mixin main-text-color($color: rebeccapurple){
+	-webkit-print-color-adjust: exact !important;
+	print-color-adjust: exact !important;
+	color: $color !important;
+}
+
+@mixin font($size: 1.2rem, $lineHeight: 1.2rem, $bold: normal){
+	font-size: $size;
+	line-height: $lineHeight;
+	font-weight: $bold;
+}
+
+@page {
+  size: A4 !important;
+}
+
+@media print{
+
+	.header_primary{
+		background: linear-gradient(to right, white 0%, $color-first 100%) !important;
+		-webkit-print-color-adjust: exact;
+		print-color-adjust: exact;
+
+		*,
+		*:after,
+		*:before{
+			color: white !important;
+			// page-break-inside: avoid;
+		}
+
+		.header__avatar{
+			position: absolute;
+			left: -100px;
+		}
+	}
+
+	.section__header{
+		padding: 0 !important;
+
+		span{
+			@include font(1.6rem, 1.6rem, bold);
+			@include main-text-color();
+
+			background: none !important;
+			-webkit-background-clip: unset !important;
+			-webkit-text-fill-color: unset !important;
+
+			&:after{
+				display: none !important;
+			}
+		}
+	}
+
+	a[href]:after{
+		content: none !important;
+	}
+
+	.in-viewport{
+		opacity: 1 !important;
+		transform: none;
+	}
+
+	.main-menu{
+		display: none !important;
+	}
+
+	.experience-section{
+		padding: 20px 0 0 !important;
+
+		.experience-list{
+			padding: 0 0 15px 50px !important;
+		}
+
+		.experience-item{
+			padding-left: 25px;
+
+			.experience-item__header, 
+			.experience-item__header span,
+			time,
+			time:after{
+        display: inline;
+        position: static;
+				text-indent: 0;
+				@include font(1rem, 1rem);
+				@include main-text-color();
+			}
+
+			.experience-item__description{
+				@include font(0.8rem, 0.8rem);
+			}
+
+			.experience-item__image{
+				top: 10px;
+				height: 35px;
+				width: 35px;
+      }
+		}
+	}
+
+	.skills-section{
+		padding-left: 30px;
+
+		.skills-item{
+			background: none !important;
+			box-shadow: inset 200px 200px 76px 176px #b8bd56;
+			opacity: 1 !important;
+			height: 0.8rem !important;
+
+			.skills-item__title, .skills-item__percentage{
+				@include font(0.8rem, 0.8rem);
+			}
+		}
+
+		@for $i from 1 through 20 {
+			.skills-item_level-#{$i*5}{
+				width: percentage($i*5/100) !important;
+			}
+		}
+	}
+
+	.personalities-section{
+		.personality-item{
+			opacity: 1 !important;
+			margin: 0 !important;
+
+			.personalities-item__header{
+				@include font(1rem, 1rem);
+				@include main-text-color();
+			}
+
+			.personalities-item__description{
+				@include font(0.8rem, 0.8rem);
+			}
+		}
+	}
+
+	.goal{
+		.goal__description{
+			@include font(0.8rem, 0.8rem);
+		}
+	}
+
+	.interests-list{
+		height: auto !important;
+		margin-bottom: 50px !important;
+
+		p{
+			@include font(0.8rem, 0.8rem);
+		}
+
+		.slick-slider{
+			height: auto !important;
+
+			button{
+				display: none !important;
+			}
+		}
+
+		.slick-track{
+			transform: none !important;
+			width: 100% !important;
+		}
+
+		.slick-slide{
+			display: inline-block !important;
+			width: 25% !important;
+			margin-bottom: 10px !important;
+
+			.interests-item__image{
+				width: 80px !important;
+				height: 80px !important;
+				filter: none !important;
+				margin-bottom: 10px !important;
+			}
+
+			.interests-item__taboo{
+				font-size: 80px !important;
+
+				&:before{
+					@include main-text-color(rgba(255, 0, 0, .5));
+				}
+			}
+
+			&.slick-cloned{
+				display: none !important;
+			}
+
+			.slide-description{
+				width: 100%;
+				display: block;
+      }
+		}
+	}
+
+	.portfolio-section{
+		padding: 0 !important;
+
+		.portfolio-filters{
+			display: none !important;
+		}
+
+		.portfolio-list{
+
+			.portfolio-item{
+				width: 30% !important;
+        margin: 10px !important;
+			}
+
+			.portfolio-item__wrapper{
+				padding-top: 30px !important;
+			}
+
+			img{
+				position: static !important;
+			}
+
+			.portfolio-item__link-wrapper{
+				position: static !important;
+				padding: 0 !important;
+
+				h3, h4{
+					margin: 15px 0 5px 0 !important;
+					@include main-text-color();
+				}
+
+				h4{
+					display: none !important;
+				}
+			}
+
+			.portfolio-item__description{
+				height: auto !important;
+				padding: 0 5px !important;
+
+				.portfolio-item__description_text{
+					color: grey !important;
+					width: 100% !important;
+					text-align: center !important;
+				}
+
+				.portfolio-item__technologies-list{
+					width: 100% !important;
+					text-align: left !important;
+					margin: 5px 0 !important;
+					@include font(0.6rem, 1rem);
+
+					.portfolio-item__technologies-item{
+						display: inline-block !important;
+						margin-right: 5px !important;
+						@include main-text-color();
+					}
+				}
+			}
+		}
+	}
+
+	.portfolio-work__opened{
+		.work-in-frame__device-wrapper{
+			display: none !important;
+		}
+
+		.portfolio-opened__print-version{
+			display: block !important;
+		}
+
+		.portfolio-opened__description{
+			width: 100% !important;
+
+			p{
+				margin-bottom: 10px !important;
+			}
+		}
+
+		.header-section{
+			a{
+				display: none !important;
+			}
+		}
+  }
+  
+  .qualities-item__header{
+    @include font(0.8rem, 0.8rem);
+    margin-left: 15px !important;
+  }
+  .qualities-item__description{
+    @include font(0.8rem, 0.8rem);
+  }
+  
+  .portfolio-item__print-link{
+    display: block !important;
+    text-align: right;
+    text-decoration: underline;
+    color: blue !important;
+    @include font(0.6rem, 0.6rem);
+  }
+  
+  .experience-item{
+    padding: 0 !important;
+  }
+  
+  time.experience-item__year{
+    position: static !important;
+  }
+  
+  time.experience-item__year + span{
+    margin-left: 10px !important;
+  }
+  
+  time.experience-item__year:after{
+    display: none !important;
+  }
+  
+  .experience-item__image-wrapper,
+  .experience-item__pointer,
+  .skills-filters,
+  .slick-arrow{
+    display: none !important;
+  }
+}

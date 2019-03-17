@@ -12,6 +12,7 @@ interface Work {
   image: URL,
   url?: string,
   mode?: string,
+  layout?: string,
   techs: Technology[]
 }
 

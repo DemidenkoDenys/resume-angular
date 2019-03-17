@@ -53,6 +53,7 @@ export class PortfolioListComponent {
         if (work.hasOwnProperty('title') && work.title) {
           const data: any = { url: this.getFullWorkUrl(work.url || work.title) };
           if (work.hasOwnProperty('mode')) { data.mode = work.mode; }
+          if (work.hasOwnProperty('layout')) { data.layout = work.layout; }
           this._router.config.unshift({
             path: work.title,
             component: DetailsComponent,

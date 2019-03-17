@@ -14,6 +14,7 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 export class DetailsComponent implements OnDestroy {
 
   workName: string;
+  workLayout: string;
   workUrl: SafeResourceUrl;
   modes: Modes;
   currentMode: Mode;
@@ -38,6 +39,7 @@ export class DetailsComponent implements OnDestroy {
 
     this.routeDataSubscriber = this._route.data.subscribe((data: any) => {
       this.workUrl = this._sanitizer.bypassSecurityTrustResourceUrl(data.url);
+      if (data.hasOwnProperty('layout')) { this.workLayout = data.layout; }
       if (data.hasOwnProperty('mode') && this.modes.hasOwnProperty(data.mode)) {
         this.currentMode = this.modes[data.mode];
         this.loadImageAsync(this.getFrameSrc(this.currentMode.name));

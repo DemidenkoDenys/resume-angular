@@ -4,9 +4,9 @@
 
   <p class="section-description" in-viewport>{{ 'descriptions.experience' | translate }}</p>
 
-  <ul class="experience-list">
+  <ul class="experience-list" [class.loading]="!(experiences | async)?.length">
 
-      <ng-container *ngFor="let item of experiences | async; let i = index; let count = count;">
+    <ng-container *ngFor="let item of experiences | async; let i = index; let count = count;">
 
       <li
         class="experience-item"
@@ -26,7 +26,7 @@
           <time class="experience-item__year">
             <span class="experience-item__year-text">{{ item.year }}</span>
           </time>
-          <span in-viewport>{{ 'experience.' + item.year + '.title' | translate }}</span>
+          <strong in-viewport>{{ 'experience.' + item.year + '.title' | translate }}</strong>
         </h3>
 
         <p class="experience-item__description" in-viewport>{{ 'experience.' + item.year + '.description' | translate }}</p>

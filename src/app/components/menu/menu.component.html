@@ -18,11 +18,12 @@
         <ejs-tooltip [content]="'menu.' + item.title | translate" cssClass="tooltip-window" [mouseTrail]='true'>
           <a
             class="main-menu__item-link"
-            target="_blank"
+            [class.active]="item.title === language"
             [href]="item.href ? item.href : '#'"
             [attr.download]="item.download ? '' : null"
             [style.background-position]="(i * 5.9) + '% 0'"
             (click)="item.action && item.action(); item.prevent && $event.preventDefault();"
+            target="_blank"
           >
             {{item.description}}
           </a>

@@ -1,6 +1,7 @@
 /// <reference path="./menu.d.ts" />
 
 import { Component, HostListener, Inject } from "@angular/core";
+import { TranslateService, LangChangeEvent } from "@ngx-translate/core";
 import { ResponsiveService } from "../../services/responsive.service";
 import { MenuService } from "./menu.service";
 import { DOCUMENT } from "@angular/platform-browser";
@@ -26,9 +27,11 @@ export class MenuComponent {
   modalOpenObserver: any;
   deviceMenusObserver: any;
   scrollObserver: any;
+  language: string = 'ru';
 
   constructor(
     private _menuService: MenuService,
+    private _translate: TranslateService,
     private _responsiveService: ResponsiveService,
     @Inject(DOCUMENT) private _document: Document,
     @Inject(WINDOW) private _window: Window
@@ -48,6 +51,10 @@ export class MenuComponent {
       for (let i = count - 1; i > count - 7; i--) {
         this.menuItems[i].show = open;
       }
+    });
+
+    this._translate.onLangChange.subscribe((event: LangChangeEvent) => {
+      this.language = event.lang;
     });
   }
 

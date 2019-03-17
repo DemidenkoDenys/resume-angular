@@ -1,4 +1,5 @@
 {
+  "name": "Demidenko Denys - Angular/React frontend developer",
   "menu": {
     "djinni": "Go to account Djinni",
     "github": "Go to repository Github",
@@ -219,6 +220,7 @@
   "service": {
     "back-to-portfolio": "Back to portfolio list",
     "filter-tip": "Show works which used ",
-    "go-to-work-site": "Go to website "
+    "go-to-work-site": "Go to website ",
+    "layout": "Look at layout"
   }
 }
