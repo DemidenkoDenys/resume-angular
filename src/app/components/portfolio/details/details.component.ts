@@ -13,8 +13,7 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 })
 export class DetailsComponent implements OnDestroy {
 
-  workName: string;
-  workLayout: string;
+  work: Work;
   workUrl: SafeResourceUrl;
   modes: Modes;
   currentMode: Mode;
@@ -32,14 +31,13 @@ export class DetailsComponent implements OnDestroy {
     private _route: ActivatedRoute,
     private _sanitizer: DomSanitizer
   ) {
-    this.workName = this._router.url.replace('/', '');
     this.modes = this._portfolioServise.getViewModes();
     this.currentMode = this._portfolioServise.getDefaultMode();
     this.loadImageAsync(this.getFrameSrc(this.currentMode.name));
 
     this.routeDataSubscriber = this._route.data.subscribe((data: any) => {
+      this.work = data;
       this.workUrl = this._sanitizer.bypassSecurityTrustResourceUrl(data.url);
-      if (data.hasOwnProperty('layout')) { this.workLayout = data.layout; }
       if (data.hasOwnProperty('mode') && this.modes.hasOwnProperty(data.mode)) {
         this.currentMode = this.modes[data.mode];
         this.loadImageAsync(this.getFrameSrc(this.currentMode.name));
@@ -62,6 +60,7 @@ export class DetailsComponent implements OnDestroy {
   }
 
   ngOnDestroy() {
+    this.iframeLoaded = false;
     this._menuService.openDeviceMenus(false);
     this.modeSubscriber.unsubscribe();
     this.routeDataSubscriber.unsubscribe();

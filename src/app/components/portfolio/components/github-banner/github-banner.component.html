@@ -1,0 +1,11 @@
+<figure class="open-on-github" [class.disabled]='disabled' [ngClass]="'size-' + size">
+  <a *ngIf="!disabled; else text" [href]="getFullUrl()" target="_blank">
+    <ng-container *ngTemplateOutlet="text"></ng-container>
+  </a>
+</figure>
+
+<ng-template #text>
+  <span class="open-on-github-full" *ngIf="size >= 1">Open on&nbsp;</span>
+  <span class="open-on-github-icon icon-git">&nbsp;</span>
+  <span>GitHub</span>
+</ng-template>

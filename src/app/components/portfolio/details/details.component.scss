@@ -47,13 +47,48 @@
   display: none;
 }
 
-.work-in-frame {
+.iframe-wrapper{
   position: absolute;
   left: 0;
   top: 0;
-  border: none;
   z-index: 1;
   transform-origin: 0 0;
+
+  &_desktop {
+    left: 4%;
+    top: 4.8%;
+  }
+
+  &_iphone {
+    top: 14.4%;
+    left: 8.4%;
+  }
+
+  &_laptop {
+    top: 4.3%;
+    left: 10.2%;
+  }
+
+  &_ipad {
+    top: 11.5%;
+    left: 5.5%;
+  }
+
+  &_ipadpro {
+    top: 6.5%;
+    left: 4.8%;
+  }
+
+  &_samsung {
+    top: 9.2%;
+    left: 3.5%;
+  }
+}
+
+.work-in-frame {
+  width: 100%;
+  height: 100%;
+  border: none;
 
   overflow-scrolling: touch;
   overflow: hidden;
@@ -75,7 +110,7 @@
 
     .work-in-frame__device-wrapper_laptop & {
       top: 9px;
-      right: 84px;
+      right: 9%;
     }
 
     &:after,
@@ -203,36 +238,6 @@
     max-height: 100%;
     pointer-events: none;
     z-index: 2;
-  }
-
-  &_desktop {
-    left: 4%;
-    top: 4.8%;
-  }
-
-  &_iphone {
-    top: 14.4%;
-    left: 8.4%;
-  }
-
-  &_laptop {
-    top: 4.3%;
-    left: 10.2%;
-  }
-
-  &_ipad {
-    top: 11.5%;
-    left: 5.5%;
-  }
-
-  &_ipadpro {
-    top: 6.5%;
-    left: 4.8%;
-  }
-
-  &_samsung {
-    top: 9.2%;
-    left: 3.5%;
   }
 
   &_waiting {

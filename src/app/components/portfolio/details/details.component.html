@@ -3,31 +3,37 @@
   <app-section-title
     backLink
     [externalLink]="workUrl"
-    [title]="'portfolio.' + workName + '.title' | translate"></app-section-title>
+    [title]="'portfolio.' + work?.title + '.title' | translate"></app-section-title>
 
   <div class='portfolio-work__description' in-viewport>
     <img class="portfolio-work__image print-version" [src]="deviceImageSource" [alt]="" />
     <p class='portfolio-work__full-description'>
-      {{ 'portfolio.' + workName + '.description' | translate }}
-      <a *ngIf="workLayout" [href]="workLayout" target="_blank">{{ 'service.layout' | translate }}</a>
+      {{ 'portfolio.' + work?.title + '.description' | translate }}
+      <a *ngIf="work?.layout" [href]="work?.layout" target="_blank">{{ 'service.layout' | translate }}</a>
     </p>
-    <p class="portfolio-work print-version">{{ 'portfolio.' + workName + '.description' | translate }}</p>
+    <p class="portfolio-work print-version">{{ 'portfolio.' + work?.title + '.description' | translate }}</p>
   </div>
 
   <div [ngClass]="'work-in-frame__device-wrapper work-in-frame__device-wrapper_' + currentMode.name">
     <img class="work-in-frame__device-cover" [src]="deviceImageSource" alt="device frame" />
 
-    <iframe [src]="workUrl"
-            (load)="onIframeLoaded()"
-            class="work-in-frame"
-            [class.work-in-frame_waiting]="!deviceImageSource || !iframeLoaded"
-            [ngClass]="'work-in-frame_' + currentMode.name"
-            scale-iframe
-            in-viewport
-            (inViewport)="iframeInViewport($event)"
-            [scale]="currentMode.scale"
-            [width]="currentMode.width"
-            [height]="currentMode.height"></iframe>
+    <div class="iframe-wrapper"
+      [ngClass]="'iframe-wrapper_' + currentMode.name"
+      scale-iframe
+      [scale]="currentMode.scale"
+      [width]="currentMode.width"
+      [height]="currentMode.height">
+
+      <iframe [src]="workUrl"
+        (load)="onIframeLoaded()"
+        class="work-in-frame"
+        [class.work-in-frame_waiting]="!deviceImageSource || !iframeLoaded"
+        in-viewport
+        (inViewport)="iframeInViewport($event)"
+        ></iframe>
+
+      <github-banner *ngIf="work?.github" [name]="work?.github" [size]="2" [disabled]="false"></github-banner>
+    </div>
 
     <div class='work-in-frame__loading-icon'></div>
 

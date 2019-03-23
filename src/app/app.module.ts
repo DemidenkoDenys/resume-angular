@@ -30,6 +30,7 @@ import { ModalComponent } from './components/modal/modal.component';
 import { DetailsComponent } from './components/portfolio/details/details.component';
 import { ScaleIframeDirective } from './directives/scale-iframe.directive';
 import { InViewportDirective } from './directives/in-viewport.directive';
+import { GithubBannerComponent } from './components/portfolio/components/github-banner/github-banner.component';
 
 @NgModule({
   declarations: [
@@ -48,6 +49,7 @@ import { InViewportDirective } from './directives/in-viewport.directive';
     DetailsComponent,
     ScaleIframeDirective,
     InViewportDirective,
+    GithubBannerComponent,
   ],
   imports: [
     BrowserModule,

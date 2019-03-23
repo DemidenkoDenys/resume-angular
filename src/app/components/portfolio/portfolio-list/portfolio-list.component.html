@@ -7,22 +7,25 @@
         <img class="portfolio-item__image" [src]="work.image" alt="" />
 
         <a class="portfolio-item__link-wrapper" [routerLink]="['/' + work.title]">
+
           <h3 class="portfolio-item__header">{{ getTitleKey(work.title) | translate }}</h3>
+
           <p class="portfolio-item__short-description">{{ getShortKey(work.title) | translate }}</p>
 
           <article class="portfolio-item__description">
             <small class="portfolio-item__description_text">{{ getDescriptionKey(work.title) | translate }}</small>
-
             <p class="portfolio-item__technologies-list">
               <ng-container *ngFor="let tech of work.techs | keyvalue">
                 <span class='portfolio-item__technologies-item' *ngIf="tech.value">{{ tech.key }}</span>
               </ng-container>
             </p>
-
           </article>
 
           <p class="portfolio-item__print-link">{{ getFullWorkUrl(work.url || work.title) }}</p>
         </a>
+
+        <github-banner *ngIf="work?.github" [name]="work?.github"></github-banner>
+
       </div>
 
     </li>

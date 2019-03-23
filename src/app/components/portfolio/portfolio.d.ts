@@ -13,6 +13,7 @@ interface Work {
   url?: string,
   mode?: string,
   layout?: string,
+  github?: string,
   techs: Technology[]
 }
 
@@ -25,4 +26,13 @@ interface Mode {
 
 interface Modes {
   [key: string]: Mode
+}
+
+type GitHubSizes = 0 | 1 | 2;
+
+interface GitHubBanner {
+  disabled: boolean,
+  size: GitHubSizes,
+  url: string,
+  name: string
 }
