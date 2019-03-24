@@ -53,6 +53,7 @@
   top: 0;
   z-index: 1;
   transform-origin: 0 0;
+  overflow: hidden;
 
   &_desktop {
     left: 4%;

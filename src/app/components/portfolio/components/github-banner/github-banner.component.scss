@@ -13,20 +13,12 @@
   z-index: 2;
 
   &.size {
-    &-0 {
-      font-size: .7rem;
-      box-shadow: 0px 5px 20px -5px rgba(0, 0, 0, 0.75);
-    }
-    &-1 {
-      font-size: .7rem;
-      box-shadow: 0px 5px 20px -5px rgba(0, 0, 0, 0.75);
-    }
     &-2 {
       top: auto;
       bottom: 0;
       right: 0;
       font-size: 1rem;
-      transform: rotate(-45deg) translate(calc(50% - 2rem), -100%)
+      transform: rotate(-45deg) translate(calc(50% - 2rem), -50%);
     }
   }
 

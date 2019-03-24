@@ -26,7 +26,7 @@ export class PortfolioService {
       name: 'ipad',
       scale: 0.8916030534,
       width: 1536,
-      height: 2048
+      height: 2006
     },
     ipadpro : {
       name: 'ipadpro',
