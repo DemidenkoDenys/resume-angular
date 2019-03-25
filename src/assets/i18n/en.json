@@ -29,7 +29,7 @@
     "portfolio": "Example of works"
   },
   "descriptions": {
-    "goal": "I'm excited to be one of a the key developer of a international and perspective company, where I wiil be able to actualize my ambitions. I would like to get backend and mobile development specialization in perspective and take part of developing of projects with complex logic and using of artifitial intelligence.",
+    "goal": "I'm excited to be one of the key developers of a international and perspective company, where I wiil be able to actualize my ambitions. I would like to get backend and mobile development specialization in perspective and take part of developing of projects with complex logic and using of artifitial intelligence.",
     "interests": "In my live a lot of hobbies, which help me to keep myself from going crazy, have a good time and improve myself...",
     "portfolio": ""
   },
@@ -48,7 +48,7 @@
     },
     "2007": {
       "title": "Graduated from University",
-      "description": "Graduated from Kharkiv National University of Economy (KNUE) with excellent. Diploma's topic - Development of automated module 'Monitoring of payments for provided services in private local network' - grade 'A' (10)"
+      "description": "Graduated from Kharkiv National University of Economy (KNUE) with excellence. Diploma's topic - Development of automated module 'Monitoring of payments for provided services in private local network' - grade 'A' (10)"
     },
     "2008": {
       "title": "Technician-administrator of Airbites",
@@ -64,11 +64,11 @@
     },
     "2016": {
       "title": "Trainy frontend developer",
-      "description": "I was attended on 3 months paid trainy course in Demiart webstudio. During this time I produced 4 SPA websites, which were successfuly launched"
+      "description": "I attended 3 months paid trainy course in Demiart webstudio. During this time I produced 4 SPA websites, which were successfuly launched"
     },
     "2017": {
       "title": "Frontend developer BigDrop",
-      "description": "Worked at BigDrop company for one year. I was responsible to frontend of multipage websites and online shops by custom design for integration with Wordpress"
+      "description": "Worked at BigDrop company for one year. I was responsible for frontend of multipage websites and online shops by custom design for integration with Wordpress"
     },
     "2018": {
       "title": "Angular/React developer DigitalSuits",
@@ -193,28 +193,28 @@
       "description": "I've met mutual understanding between colleagues by project and me for many times. Try never conflict with my colleagues, instead of that, try to maintain positive atmosphere"
     },
     "clear-code": {
-      "title": "Neat",
+      "title": "Accurate",
       "description": "After refactoring a bulk of code, I figured out, why code must by clear and clarified for new part of team. By this reason I always try stick to write clear and understandable code"
     },
     "diligent": {
-      "title": "With Honesty",
+      "title": "Honest",
       "description": "Honesty and integrity - it's the rules which always sticked by me"
     },
     "energetic": {
       "title": "Energetic",
-      "description": "All my colleagues from past jobs were enjoyed to work with me within common project due to energy and positive of mine. This qualities also help me cope with my work"
+      "description": "All my colleagues from past jobs enjoyed to work with me within common project due to energy and positive of mine. This quality also help me cope with my work"
     },
     "communicate": {
-      "title": "Happy to talk",
+      "title": "Communicative",
       "description": "Ability to communicate it's a crucial skill for programmer. By this reason I don't miss chance to talk to my colleagues both during working day and out of that"
     },
     "quick-learn": {
-      "title": "Quick learning",
+      "title": "Quickly learner",
       "description": "Quick learn new information and know how shortly begin to use unknown plugins and technologies"
     },
     "productivity": {
       "title": "Sprinter",
-      "description": "Try ещ finish my work quickly and only after go to rest. I always ready to run through the tasks to release my weekend"
+      "description": "Try to finish my work quickly and only after go to rest. I always ready to run through the tasks to release my weekend"
     }
   },
   "service": {
