@@ -1,12 +1,12 @@
 /// <reference path="./menu.d.ts" />
 
-import { Component, HostListener, Inject } from "@angular/core";
+import { Component, Inject } from "@angular/core";
 import { TranslateService, LangChangeEvent } from "@ngx-translate/core";
 import { ResponsiveService } from "../../services/responsive.service";
 import { MenuService } from "./menu.service";
 import { DOCUMENT } from "@angular/platform-browser";
 import { WINDOW } from "../../services/window.service";
-import { fromEvent } from "rxjs";
+import { fromEvent, Subscription } from "rxjs";
 import { map } from 'rxjs/operators';
 
 @Component({
@@ -16,6 +16,7 @@ import { map } from 'rxjs/operators';
 })
 export class MenuComponent {
 
+  language: string = 'ru';
   screen: ScreenXX;
   fixed: boolean = false;
   mobileOpened: boolean = false;
@@ -23,11 +24,8 @@ export class MenuComponent {
   menuItems: MenuItem[] = [];
   styleHtmlPreventScroll: HTMLStyleElement;
   modal: Modal = { open: false, url: "" };
-  screenStatusObserver: any;
-  modalOpenObserver: any;
-  deviceMenusObserver: any;
-  scrollObserver: any;
-  language: string = 'ru';
+
+  subscriptions: Subscription = new Subscription();
 
   constructor(
     private _menuService: MenuService,
@@ -43,26 +41,32 @@ export class MenuComponent {
 
   ngOnInit() {
     this.onResize();
-    this.scrollObserver = fromEvent(window, 'scroll').pipe(map(() => window.pageYOffset)).subscribe((pageYOffset: number) => this.fixMenu(pageYOffset));
-    this.screenStatusObserver = this._responsiveService.getScreenStatus().subscribe(() => this.setScreen());
-    this.modalOpenObserver = this._menuService.onModalOpen.subscribe(({ open, url, type }) => this.openModal(open, url, type));
-    this.deviceMenusObserver = this._menuService.onDeviceMenusOpen.subscribe((open: boolean) => {
+
+    this.subscriptions.add(
+      fromEvent(window, 'scroll')
+        .pipe(map(() => window.pageYOffset))
+        .subscribe((pageYOffset: number) =>
+          this.fixMenu(pageYOffset)
+        )
+    );
+
+    this.subscriptions.add(this._responsiveService.getScreenStatus().subscribe(() => this.setScreen()));
+    this.subscriptions.add(this._menuService.onModalOpen.subscribe(({ open, url, type }) => this.openModal(open, url, type)));
+
+    this.subscriptions.add(this._menuService.onDeviceMenusOpen.subscribe((open: boolean) => {
       const count = this.menuItems.length;
       for (let i = count - 1; i > count - 7; i--) {
         this.menuItems[i].show = open;
       }
-    });
+    }));
 
-    this._translate.onLangChange.subscribe((event: LangChangeEvent) => {
+    this.subscriptions.add(this._translate.onLangChange.subscribe((event: LangChangeEvent) => {
       this.language = event.lang;
-    });
+    }));
   }
 
   ngOnDestroy() {
-    this.scrollObserver.unsubscribe();
-    this.modalOpenObserver.unsubscribe();
-    this.deviceMenusObserver.unsubscribe();
-    this.screenStatusObserver.unsubscribe();
+    this.subscriptions.unsubscribe();
   }
 
   setScreen(): void {

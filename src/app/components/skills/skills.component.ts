@@ -53,7 +53,7 @@ export class SkillsComponent {
   }
 
   sortSkills(prop: string = 'show', desc: boolean = true): void {
-    const checkProp = (item: object) => item.hasOwnProperty(prop) ? item[prop] : (desc ? Number.MAX_SAFE_INTEGER : -1);
+    const checkProp = (item: object) => prop in item ? item[prop] : (desc ? Number.MAX_SAFE_INTEGER : -1);
     for (let group in this.skills){
       this.skills[group].sort((prev: Skill, next: Skill) => {
         return checkProp(prev) < checkProp(next) ? (-1 * (desc ? 1 : -1)) : (1 * (desc ? 1 : -1));

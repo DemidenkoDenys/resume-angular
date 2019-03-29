@@ -55,7 +55,7 @@ export class PortfolioService {
   }
 
   getViewMode(mode: string): Mode | {} {
-    return this._viewModes.hasOwnProperty(mode) ? this._viewModes[mode] : {};
+    return mode in this._viewModes ? this._viewModes[mode] : {};
   }
 
   getDefaultMode(): Mode {

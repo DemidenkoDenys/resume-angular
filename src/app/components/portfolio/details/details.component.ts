@@ -5,6 +5,7 @@ import { Router, ActivatedRoute } from "@angular/router";
 import { PortfolioService } from "../portfolio.service";
 import { MenuService } from "../../menu/menu.service";
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+import { Subscription } from "rxjs";
 
 @Component({
   selector: "app-details",
@@ -20,9 +21,7 @@ export class DetailsComponent implements OnDestroy {
   iframeLoaded: boolean = false;
   deviceImageSource: string = '';
   modeChangeWatcher = new EventEmitter<string>();
-  modeSubscriber: any;
-  routeDataSubscriber: any;
-  deviceViewSubscriber: any;
+  subscriptions: Subscription = new Subscription();
 
   constructor(
     private _portfolioServise: PortfolioService,
@@ -35,23 +34,23 @@ export class DetailsComponent implements OnDestroy {
     this.currentMode = this._portfolioServise.getDefaultMode();
     this.loadImageAsync(this.getFrameSrc(this.currentMode.name));
 
-    this.routeDataSubscriber = this._route.data.subscribe((data: any) => {
+    this.subscriptions.add(this._route.data.subscribe((data: any) => {
       this.work = data;
       this.workUrl = this._sanitizer.bypassSecurityTrustResourceUrl(data.url);
-      if (data.hasOwnProperty('mode') && this.modes.hasOwnProperty(data.mode)) {
+      if ('mode' in data && data.mode in this.modes) {
         this.currentMode = this.modes[data.mode];
         this.loadImageAsync(this.getFrameSrc(this.currentMode.name));
       }
-    });
+    }));
 
-    this.deviceViewSubscriber = this._menuService.onDeviceViewChanged.subscribe((modeName: string) => {
-      if (this.modes.hasOwnProperty(modeName)) {
+    this.subscriptions.add(this._menuService.onDeviceViewChanged.subscribe((modeName: string) => {
+      if (modeName in this.modes) {
         this.currentMode = this.modes[modeName];
         this.loadImageAsync(this.getFrameSrc(this.currentMode.name));
       }
-    });
+    }));
 
-    this.modeSubscriber = this.modeChangeWatcher.subscribe((src: string) => this.deviceImageSource = src);
+    this.subscriptions.add(this.modeChangeWatcher.subscribe((src: string) => this.deviceImageSource = src));
   }
 
   onChanges() {
@@ -62,9 +61,7 @@ export class DetailsComponent implements OnDestroy {
   ngOnDestroy() {
     this.iframeLoaded = false;
     this._menuService.openDeviceMenus(false);
-    this.modeSubscriber.unsubscribe();
-    this.routeDataSubscriber.unsubscribe();
-    this.deviceViewSubscriber.unsubscribe();
+    this.subscriptions.unsubscribe();
   }
 
   onIframeLoaded(): void {

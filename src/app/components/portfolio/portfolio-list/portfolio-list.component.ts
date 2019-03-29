@@ -50,7 +50,7 @@ export class PortfolioListComponent {
   addRoutes(): void {
     if (this._initPortfolio.length > 0) {
       this._initPortfolio.map(work => {
-        if (work.hasOwnProperty('title') && work.title) {
+        if ('title' in work && work.title) {
           const data = { ...work, url: this.getFullWorkUrl(work.url || work.title) };
           this._router.config.unshift({
             path: data.title,
