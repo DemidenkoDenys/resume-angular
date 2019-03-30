@@ -1,15 +1,16 @@
 /// <reference path="../portfolio.d.ts" />
 
-import { Component, Output, EventEmitter } from '@angular/core';
+import { Component, Output, EventEmitter, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
 import { Observable } from 'rxjs';
 import { FetchService } from '../../../services/fetch.service';
 
 @Component({
   selector: 'app-filters',
   templateUrl: './filters.component.html',
-  styleUrls: ['./filters.component.scss']
+  styleUrls: ['./filters.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class FiltersComponent {
+export class FiltersComponent{
 
   @Output() onFilterChanged = new EventEmitter<FiltersInterface>();
 
@@ -18,7 +19,9 @@ export class FiltersComponent {
   filtersKeys: string[] = [];
   filterObserver: any;
 
-  constructor(private _fetch: FetchService) {
+  constructor(
+    private _fetch: FetchService,
+    private _cdr: ChangeDetectorRef) {
     this.initFilters();
   }
 
@@ -32,6 +35,7 @@ export class FiltersComponent {
       if (Object.keys(this.filters).length === 0) {
         this.setFilters(snapshot);
         this.resetFilters();
+        this._cdr.detectChanges();
       }
     });
   }

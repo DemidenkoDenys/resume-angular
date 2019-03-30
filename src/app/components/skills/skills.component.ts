@@ -1,12 +1,13 @@
 /// <reference path="./skills.d.ts" />
 
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy, ChangeDetectorRef  } from '@angular/core';
 import { FetchService } from '../../services/fetch.service';
 
 @Component({
   selector: 'app-skills',
   templateUrl: './skills.component.html',
-  styleUrls: ['./skills.component.scss']
+  styleUrls: ['./skills.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SkillsComponent {
 
@@ -20,8 +21,11 @@ export class SkillsComponent {
   skillsObserver: any;
   skillsPriorityObserver: any;
 
-  constructor(private _fetch: FetchService) {
-    this.skillsPriorityObserver = this._fetch.getSkillsPriority().subscribe((snapshot: string[]) => this.initSkillPriorities(snapshot));
+  constructor(private _fetch: FetchService, private _cdr: ChangeDetectorRef) {
+    this.skillsPriorityObserver = this._fetch.getSkillsPriority().subscribe((snapshot: string[]) => {
+      this.initSkillPriorities(snapshot);
+      this._cdr.detectChanges();
+    });
     this.skillsObserver = this._fetch.getSkills().subscribe((snapshot: FetchedSkills) => {
       this.initSkills(snapshot);
       this.sortSkills();
@@ -59,6 +63,7 @@ export class SkillsComponent {
         return checkProp(prev) < checkProp(next) ? (-1 * (desc ? 1 : -1)) : (1 * (desc ? 1 : -1));
       });
     }
+    this._cdr.detectChanges();
   }
 
   executeFilter(filter: any): void {

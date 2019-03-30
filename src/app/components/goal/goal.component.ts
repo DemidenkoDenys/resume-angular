@@ -1,12 +1,13 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
   selector: 'app-goal',
   templateUrl: './goal.component.html',
-  styleUrls: ['./goal.component.scss']
+  styleUrls: ['./goal.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class GoalComponent {
+export class GoalComponent{
 
   constructor() {}
-  
+
 }

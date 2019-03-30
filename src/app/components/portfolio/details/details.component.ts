@@ -1,6 +1,6 @@
 /// <reference path="../portfolio.d.ts" />
 
-import { Component, EventEmitter, OnDestroy } from "@angular/core";
+import { Component, EventEmitter, ChangeDetectionStrategy, ChangeDetectorRef, OnDestroy } from "@angular/core";
 import { Router, ActivatedRoute } from "@angular/router";
 import { PortfolioService } from "../portfolio.service";
 import { MenuService } from "../../menu/menu.service";
@@ -10,7 +10,8 @@ import { Subscription } from "rxjs";
 @Component({
   selector: "app-details",
   templateUrl: "./details.component.html",
-  styleUrls: ["./details.component.scss"]
+  styleUrls: ["./details.component.scss"],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DetailsComponent implements OnDestroy {
 
@@ -28,7 +29,8 @@ export class DetailsComponent implements OnDestroy {
     private _menuService: MenuService,
     private _router: Router,
     private _route: ActivatedRoute,
-    private _sanitizer: DomSanitizer
+    private _sanitizer: DomSanitizer,
+    private _cdr: ChangeDetectorRef
   ) {
     this.modes = this._portfolioServise.getViewModes();
     this.currentMode = this._portfolioServise.getDefaultMode();
@@ -40,6 +42,7 @@ export class DetailsComponent implements OnDestroy {
       if ('mode' in data && data.mode in this.modes) {
         this.currentMode = this.modes[data.mode];
         this.loadImageAsync(this.getFrameSrc(this.currentMode.name));
+        this._cdr.detectChanges();
       }
     }));
 
@@ -47,10 +50,14 @@ export class DetailsComponent implements OnDestroy {
       if (modeName in this.modes) {
         this.currentMode = this.modes[modeName];
         this.loadImageAsync(this.getFrameSrc(this.currentMode.name));
+        this._cdr.detectChanges();
       }
     }));
 
-    this.subscriptions.add(this.modeChangeWatcher.subscribe((src: string) => this.deviceImageSource = src));
+    this.subscriptions.add(this.modeChangeWatcher.subscribe((src: string) => {
+      this.deviceImageSource = src;
+      this._cdr.detectChanges();
+    }));
   }
 
   onChanges() {

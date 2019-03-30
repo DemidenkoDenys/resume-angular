@@ -1,15 +1,16 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { Observable } from 'rxjs';
 import { FetchService } from '../../services/fetch.service';
 
 @Component({
   selector: 'app-interests',
   templateUrl: './interests.component.html',
-  styleUrls: ['./interests.component.scss']
+  styleUrls: ['./interests.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class InterestsComponent {
 
-  interests: Observable<{}>;
+  interests$: Observable<{}>;
 
   sliderSettings = {
     dots: false,
@@ -26,7 +27,7 @@ export class InterestsComponent {
   };
 
   constructor(private _fetch: FetchService) {
-    this.interests = this._fetch.getInterests();
+    this.interests$ = this._fetch.getInterests();
   }
 
 }

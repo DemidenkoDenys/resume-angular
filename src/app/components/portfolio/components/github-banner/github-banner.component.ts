@@ -1,11 +1,12 @@
 /// <reference path="../../portfolio.d.ts" />
 
-import { Component, Input } from '@angular/core';
+import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
   selector: 'github-banner',
   templateUrl: './github-banner.component.html',
-  styleUrls: ['./github-banner.component.scss']
+  styleUrls: ['./github-banner.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class GithubBannerComponent implements GitHubBanner {
 

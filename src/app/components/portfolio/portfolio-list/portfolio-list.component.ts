@@ -1,6 +1,6 @@
 /// <reference path="../portfolio.d.ts" />
 
-import { Component, Input, SimpleChanges } from '@angular/core';
+import { Component, Input, SimpleChanges, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
 import { Router } from '@angular/router';
 import { FetchService } from '../../../services/fetch.service';
 import { DetailsComponent } from '../details/details.component';
@@ -8,23 +8,29 @@ import { DetailsComponent } from '../details/details.component';
 @Component({
   selector: 'app-portfolio-list',
   templateUrl: './portfolio-list.component.html',
-  styleUrls: ['./portfolio-list.component.scss']
+  styleUrls: ['./portfolio-list.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class PortfolioListComponent {
 
   @Input() filters: FiltersInterface;
 
-  private _filters: string[] = [];
-  private _initPortfolio: Work[] = [];
   public portfolio: Work[] = [];
 
+  private _filters: string[] = [];
+  private _initPortfolio: Work[] = [];
   private _getPortfolioObserver: any;
 
   constructor(
     private _fetch: FetchService,
-    private _router: Router
+    private _router: Router,
+    private _cdr: ChangeDetectorRef
   ) {
-    this._getPortfolioObserver = this._fetch.getPortfolio().subscribe((snapshot: Work[]) => this.initPortfolio(snapshot));
+    this._getPortfolioObserver = this._fetch.getPortfolio().subscribe((snapshot: Work[]) => {
+      this.initPortfolio(snapshot);
+      this.addRoutes();
+      this._cdr.detectChanges();
+    });
   }
 
   ngOnChanges(changes: SimpleChanges) {
@@ -43,7 +49,6 @@ export class PortfolioListComponent {
     if (this._initPortfolio.length === 0 || this.portfolio.length === 0) {
       this._initPortfolio = portfolioList;
       this.portfolio = portfolioList;
-      this.addRoutes();
     }
   }
 

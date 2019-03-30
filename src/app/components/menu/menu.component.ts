@@ -1,6 +1,6 @@
 /// <reference path="./menu.d.ts" />
 
-import { Component, Inject } from "@angular/core";
+import { Component, Inject, ChangeDetectionStrategy, ChangeDetectorRef } from "@angular/core";
 import { TranslateService, LangChangeEvent } from "@ngx-translate/core";
 import { ResponsiveService } from "../../services/responsive.service";
 import { MenuService } from "./menu.service";
@@ -12,7 +12,8 @@ import { map } from 'rxjs/operators';
 @Component({
   selector: "app-menu",
   templateUrl: "./menu.component.html",
-  styleUrls: ["./menu.component.scss"]
+  styleUrls: ["./menu.component.scss"],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class MenuComponent {
 
@@ -22,15 +23,15 @@ export class MenuComponent {
   mobileOpened: boolean = false;
   images: Images;
   menuItems: MenuItem[] = [];
-  styleHtmlPreventScroll: HTMLStyleElement;
   modal: Modal = { open: false, url: "" };
-
+  styleHtmlPreventScroll: HTMLStyleElement;
   subscriptions: Subscription = new Subscription();
 
   constructor(
     private _menuService: MenuService,
     private _translate: TranslateService,
     private _responsiveService: ResponsiveService,
+    private _cdr: ChangeDetectorRef,
     @Inject(DOCUMENT) private _document: Document,
     @Inject(WINDOW) private _window: Window
   ) {
@@ -51,17 +52,22 @@ export class MenuComponent {
     );
 
     this.subscriptions.add(this._responsiveService.getScreenStatus().subscribe(() => this.setScreen()));
-    this.subscriptions.add(this._menuService.onModalOpen.subscribe(({ open, url, type }) => this.openModal(open, url, type)));
+    this.subscriptions.add(this._menuService.onModalOpen.subscribe(({ open, url, type }) => {
+      this.openModal(open, url, type);
+      this._cdr.detectChanges();
+    }));
 
     this.subscriptions.add(this._menuService.onDeviceMenusOpen.subscribe((open: boolean) => {
       const count = this.menuItems.length;
       for (let i = count - 1; i > count - 7; i--) {
         this.menuItems[i].show = open;
       }
+      this._cdr.detectChanges();
     }));
 
     this.subscriptions.add(this._translate.onLangChange.subscribe((event: LangChangeEvent) => {
       this.language = event.lang;
+      this._cdr.detectChanges();
     }));
   }
 
@@ -108,9 +114,11 @@ export class MenuComponent {
   fixMenu(scrollTop: number): void {
     if (scrollTop <= 300 && this.fixed) {
       this.fixed = false;
+      this._cdr.detectChanges();
     }
     if (scrollTop > 300 && !this.fixed) {
       this.fixed = true;
+      this._cdr.detectChanges();
     }
   }
 

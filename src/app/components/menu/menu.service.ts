@@ -8,6 +8,7 @@ import { Title } from "@angular/platform-browser";
 
 @Injectable()
 export class MenuService {
+
   @Output() onModalOpen = new EventEmitter<{}>();
   @Output() onDeviceMenusOpen = new EventEmitter<boolean>();
   @Output() onDeviceViewChanged = new EventEmitter<string>();

@@ -4,7 +4,7 @@
 
   <p class="section-description" in-viewport>{{ 'descriptions.interests' | translate }}</p>
 
-  <div [class.loading]="!(interests | async)?.length"></div>
+  <div [class.loading]="!(interests$ | async)?.length"></div>
 
   <ngx-slick-carousel
     class="interests-list carousel"
@@ -12,7 +12,7 @@
     [config]="sliderSettings"
     in-viewport>
 
-    <div ngxSlickItem class="interests-item" *ngFor="let slide of interests | async; let i = index">
+    <div ngxSlickItem class="interests-item" *ngFor="let slide of interests$ | async; let i = index">
       <span *ngIf="slide.taboo" class="interests-item__taboo glyphicon glyphicon-ban-circle"></span>
       <ejs-tooltip [content]="'interests.' + slide.title | translate" cssClass="tooltip-window" [mouseTrail]='true'>
         <img src="{{ slide.image }}" alt="" class="interests-item__image" >
